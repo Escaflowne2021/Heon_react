@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a1bac5a-bfa9-413b-bb23-99e3f3a16fdd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Light_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Light_Comp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576668125898</updated>
-      <workItem from="1576668128592" duration="15156000" />
+      <workItem from="1576668128592" duration="15669000" />
     </task>
     <servers />
   </component>
@@ -93,21 +88,21 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="679" y="304" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576674774600" />
-    <state width="2517" height="266" key="GridCell.Tab.0.bottom" timestamp="1576707164969">
+    <state width="2517" height="266" key="GridCell.Tab.0.bottom" timestamp="1576710133160">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576707164969" />
-    <state width="2517" height="266" key="GridCell.Tab.0.center" timestamp="1576707164969">
+    <state width="2517" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
+    <state width="2517" height="266" key="GridCell.Tab.0.center" timestamp="1576710133160">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576707164969" />
-    <state width="2517" height="266" key="GridCell.Tab.0.left" timestamp="1576707164969">
+    <state width="2517" height="266" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
+    <state width="2517" height="266" key="GridCell.Tab.0.left" timestamp="1576710133160">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576707164969" />
-    <state width="2517" height="266" key="GridCell.Tab.0.right" timestamp="1576707164969">
+    <state width="2517" height="266" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
+    <state width="2517" height="266" key="GridCell.Tab.0.right" timestamp="1576710133160">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576707164969" />
+    <state width="2517" height="266" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
   </component>
 </project>

@@ -1,27 +1,20 @@
-import React, { Component } from "react";
-import axios from 'axios'
-
-const HeonDataBase = {}
-
-class HeonLight_Sys_Comp extends Component{
+import React, {Component} from "react";
 
 
+class HeonLight_Sys_Comp extends Component {
 
-
-        state = {
-            HeonDataBase : {}
-        }
-
+    state = {
+        HeonDataBase: {}
+    }
 
     render() {
-        var HeonDataBase = { ... this.state.HeonDataBase}
-          const liste = Object.keys(HeonDataBase)
-             .map(heon => (
-                 <div key={HeonDataBase[heon].id}> {HeonDataBase[heon].name} /  {HeonDataBase[heon].data.length} </div>
-                 )
+        var HeonDataBase = {...this.state.HeonDataBase}
+        const liste = Object.keys(HeonDataBase)
+            .map(heon => (
+                    <div key={HeonDataBase[heon].id}> {HeonDataBase[heon].name} / {HeonDataBase[heon].data.length} </div>
+                )
 
-                 //<div> {heon} </div>
-             )
+            )
         var k = this.state.HeonDataBase.data
 
 
@@ -32,16 +25,16 @@ class HeonLight_Sys_Comp extends Component{
                 <div>{liste}</div>
 
             </div>
-            )
+        )
 
     }
 
-      GetHeonBase(){
+    GetHeonBase() {
         console.log("HeonLight")
         let result = new Promise(((resolve, reject) => {
                 let request = new XMLHttpRequest();
                 console.log("Request");
-                request.open("GET","http://192.168.0.13:8080/heon");
+                request.open("GET", "http://192.168.0.13:8080/heon");
                 request.onreadystatechange = () => {
                     let raw = request.responseText;
 
@@ -52,29 +45,15 @@ class HeonLight_Sys_Comp extends Component{
                     this.setState({HeonDataBase});
                 }
                 request.send();
-
-
             })
-
         );
     }
 
     componentDidMount() {
 
-        // axios.get("http://192.168.0.13:8080/heon")
-        //     .then(HeonDataBase => this.setState({HeonDataBase: HeonDataBase["data"]["data"]}))
-
-        // axios.get("http://192.168.0.13:8080/heon")
-        //     .then((response)=>{
-        //         console.log(response.data)
-        //         response = JSON.parse(response)
-        //         this.setState({HeonDataBase: response.data})
-        //     })
-
-
         let request = new XMLHttpRequest();
         console.log("Request");
-        request.open("GET","http://192.168.0.13:8080/heon");
+        request.open("GET", "http://192.168.0.13:8080/heon");
         request.onload = () => {
             let raw = request.responseText;
             let data = JSON.parse(raw, ((key, value) => {
@@ -86,13 +65,7 @@ class HeonLight_Sys_Comp extends Component{
         }
         request.send();
 
-
-        }
-
-
-
-
-
+    }
 
 }
 
