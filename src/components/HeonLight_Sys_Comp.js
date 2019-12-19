@@ -13,12 +13,11 @@ class HeonLight_Sys_Comp extends Component {
         const liste = Object.keys(HeonDataBase)
             .map(heon => (
                    <HeonLight
+                        data={HeonDataBase[heon].data}
                          key={HeonDataBase[heon].id}
                          nblight={HeonDataBase[heon].data.length}
                          id={HeonDataBase[heon].id}
                          nom={HeonDataBase[heon].name}/>
-
-
                 )
 
             )
@@ -36,25 +35,6 @@ class HeonLight_Sys_Comp extends Component {
 
     }
 
-    GetHeonBase() {
-        console.log("HeonLight")
-        let result = new Promise(((resolve, reject) => {
-                let request = new XMLHttpRequest();
-                console.log("Request");
-                request.open("GET", "http://192.168.0.13:8080/heon");
-                request.onreadystatechange = () => {
-                    let raw = request.responseText;
-
-                    let HeonDataBase = JSON.parse(raw);
-                    console.log(HeonDataBase);
-                    resolve(HeonDataBase);
-
-                    this.setState({HeonDataBase});
-                }
-                request.send();
-            })
-        );
-    }
 
     componentDidMount() {
 

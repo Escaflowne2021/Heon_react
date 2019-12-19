@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeonLight = ({id, nom, nblight}) => {
+const HeonLight = ({id, nom, nblight, data}) => {
     return (
         <button
             type = "button"
@@ -8,6 +8,7 @@ const HeonLight = ({id, nom, nblight}) => {
             {nom} <span className = "badge badge-light" > {nblight} </span>
         </button>
     )
+    console.log(data)
 
 }
 
