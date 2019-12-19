@@ -13,7 +13,7 @@ class HeonLight_Sys_Comp extends Component {
         const liste = Object.keys(HeonDataBase)
             .map(heon => (
                    <HeonLight
-                        data={HeonDataBase[heon].data}
+                        data={HeonDataBase[heon]}
                          key={HeonDataBase[heon].id}
                          nblight={HeonDataBase[heon].data.length}
                          id={HeonDataBase[heon].id}
@@ -21,7 +21,7 @@ class HeonLight_Sys_Comp extends Component {
                 )
 
             )
-        var k = this.state.HeonDataBase.data
+
 
 
         return (
