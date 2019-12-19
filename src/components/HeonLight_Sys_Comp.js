@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import HeonLight from "./HeonLight";
 
 
 class HeonLight_Sys_Comp extends Component {
@@ -11,7 +12,13 @@ class HeonLight_Sys_Comp extends Component {
         var HeonDataBase = {...this.state.HeonDataBase}
         const liste = Object.keys(HeonDataBase)
             .map(heon => (
-                    <div key={HeonDataBase[heon].id}> {HeonDataBase[heon].name} / {HeonDataBase[heon].data.length} </div>
+                   <HeonLight
+                         key={HeonDataBase[heon].id}
+                         nblight={HeonDataBase[heon].data.length}
+                         id={HeonDataBase[heon].id}
+                         nom={HeonDataBase[heon].name}/>
+
+
                 )
 
             )
@@ -22,7 +29,7 @@ class HeonLight_Sys_Comp extends Component {
             <div>
                 <div className="col-6 bg-light">HeonLight_Sys_Comp
                 </div>
-                <div>{liste}</div>
+                <div className="container">{liste}</div>
 
             </div>
         )

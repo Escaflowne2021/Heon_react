@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a1bac5a-bfa9-413b-bb23-99e3f3a16fdd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/HeonLight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Light_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Light_Comp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Light_Comp.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,33 +77,60 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576668125898</updated>
-      <workItem from="1576668128592" duration="15669000" />
+      <workItem from="1576668128592" duration="19131000" />
     </task>
+    <task id="LOCAL-00001" summary="Nettoyage">
+      <created>1576710521452</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576710521453</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Nettoyage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nettoyage" />
   </component>
   <component name="WindowStateProjectService">
     <state x="679" y="304" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1576674774600">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="679" y="304" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576674774600" />
-    <state width="2517" height="266" key="GridCell.Tab.0.bottom" timestamp="1576710133160">
+    <state x="905" y="294" key="CommitChangelistDialog2" timestamp="1576710520668">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
-    <state width="2517" height="266" key="GridCell.Tab.0.center" timestamp="1576710133160">
+    <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710520668" />
+    <state width="2517" height="266" key="GridCell.Tab.0.bottom" timestamp="1576739766024">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
-    <state width="2517" height="266" key="GridCell.Tab.0.left" timestamp="1576710133160">
+    <state width="2517" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576739766024" />
+    <state width="2517" height="266" key="GridCell.Tab.0.center" timestamp="1576739766023">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
-    <state width="2517" height="266" key="GridCell.Tab.0.right" timestamp="1576710133160">
+    <state width="2517" height="266" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576739766023" />
+    <state width="2517" height="266" key="GridCell.Tab.0.left" timestamp="1576739766023">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576710133160" />
+    <state width="2517" height="266" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576739766023" />
+    <state width="2517" height="266" key="GridCell.Tab.0.right" timestamp="1576739766024">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="266" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576739766024" />
   </component>
 </project>
