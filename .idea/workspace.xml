@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a1bac5a-bfa9-413b-bb23-99e3f3a16fdd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HeonLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight.js" afterDir="false" />
     </list>
@@ -38,7 +39,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -78,7 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1576668125898</updated>
       <workItem from="1576668128592" duration="46351000" />
-      <workItem from="1576875586819" duration="933000" />
+      <workItem from="1576875586819" duration="2285000" />
+      <workItem from="1576920977559" duration="533000" />
     </task>
     <task id="LOCAL-00001" summary="Nettoyage">
       <created>1576710521452</created>
@@ -145,26 +147,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576758148555" />
-    <state width="2517" height="266" key="GridCell.Tab.0.bottom" timestamp="1576875451946">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1576912868822">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576875451946" />
-    <state width="2517" height="266" key="GridCell.Tab.0.center" timestamp="1576875451946">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576912868822" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1576912868822">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576875451946" />
-    <state width="2517" height="266" key="GridCell.Tab.0.left" timestamp="1576875451946">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576912868822" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1576912868821">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576875451946" />
-    <state width="2517" height="266" key="GridCell.Tab.0.right" timestamp="1576875451946">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576912868821" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1576912868822">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="266" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576875451946" />
-    <state x="783" y="346" key="SettingsEditor" timestamp="1576875594680">
+    <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576912868822" />
+    <state x="209" y="308" key="SettingsEditor" timestamp="1576921115231">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="783" y="346" key="SettingsEditor/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576875594680" />
+    <state x="209" y="308" key="SettingsEditor/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576921115231" />
     <state x="983" y="491" key="git4idea.merge.GitPullDialog" timestamp="1576747704119">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

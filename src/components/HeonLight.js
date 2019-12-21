@@ -8,9 +8,9 @@ class HeonLight extends Component {
 
     constructor(props) {
         super();
-        var timer = null
-        var longClcik = false
-        var allume = false
+        var timer = null;
+        var longClcik = false;
+        var allume = false;
 
 
         this.state = {
@@ -19,42 +19,43 @@ class HeonLight extends Component {
             nblight: props.nblight,
             color: '#fff'
 
-        }
+        };
 
-        this.LightClick = this.LightClick.bind(this)
-        this.MouseUp = this.MouseUp.bind(this)
-        this.MouseDown = this.MouseDown.bind(this)
+        this.LightClick = this.LightClick.bind(this);
+        this.MouseUp = this.MouseUp.bind(this);
+        this.MouseDown = this.MouseDown.bind(this);
     }
 
     render() {
-        var data = {...this.state.data}
-        var nom = {...this.state.nom}
-        var nblight = {...this.state.nblight}
+        var data = {...this.state.data};
+        var nom = {...this.state.nom};
+        var nblight = {...this.state.nblight};
+        var color = {...this.state.color};
 
 
         //console.log(data)
         return (
             <button className="btn btn-danger" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
-                {this.state.nom} - {this.state.nblight}
-                <HuePicker color={this.state.color}  onChange={this.handleChangeComplete }/>
+                {nom} - {nblight}
+                <HuePicker color={color}  onChange={this.handleChangeComplete }/>
 
             </button>
-        )
+        );
 
     }
 
     MouseDown() {
-        this.longClcik = false
-        console.log("Debut du timer")
+        this.longClcik = false;
+        console.log("Debut du timer");
         this.timer = setTimeout(() => {
-            console.log("Fin timer")
-            this.longClcik = true
+            console.log("Fin timer");
+            this.longClcik = true;
         }, 1000)
 
     }
 
     MouseUp() {
-        clearTimeout(this.timer)
+        clearTimeout(this.timer);
         if (this.longClcik) {
             console.log("COOOL")
 
@@ -67,42 +68,42 @@ class HeonLight extends Component {
     handleChangeComplete = (color, event) => {
         //console.log(color.rgb)
         this.setState({color: color.rgb});
-        var data = {...this.state.data.data}
-        var color = {...this.state.color}
+        var data = {...this.state.data.data};
+        var color = {...this.state.color};
         // var allume = { ... this.state.allume}
         var light = Object.keys(data).map((i) => {
             //PIXEL
-            var pixel = {...data[i].data}
+            var pixel = {...data[i].data};
             //console.log(pixel)
             Object.keys(pixel).map((ii) => {
-                    pixel[ii].g = color.g
-                    pixel[ii].r = color.r
-                    pixel[ii].b = color.b
+                    pixel[ii].g = color.g;
+                    pixel[ii].r = color.r;
+                    pixel[ii].b = color.b;
                 }
             )
-        })
+        });
 
         this.PostData(this.state.data)
-    }
+    };
 
 
     LightClick() {
-        var data = {...this.state.data.data}
-        var color = {...this.state.color}
+        var data = {...this.state.data.data};
+        var color = {...this.state.color};
         // var allume = { ... this.state.allume}
         var light = Object.keys(data).map((i) => {
             //PIXEL
-            var pixel = {...data[i].data}
+            var pixel = {...data[i].data};
             //console.log(pixel)
             Object.keys(pixel).map((ii) => {
-                    pixel[ii].g = this.allume ? 0 : color.g
-                    pixel[ii].r = this.allume ? 0 : color.r
-                    pixel[ii].b = this.allume ? 0 : color.b
+                    pixel[ii].g = this.allume ? 0 : color.g;
+                    pixel[ii].r = this.allume ? 0 : color.r;
+                    pixel[ii].b = this.allume ? 0 : color.b;
                 }
             )
-        })
-        console.log(this.allume)
-        this.allume = !this.allume
+        });
+        console.log(this.allume);
+        this.allume = !this.allume;
         this.PostData(this.state.data)
 
     }
