@@ -40,7 +40,7 @@ class HeonLight_Sys_Comp extends Component {
 
         let request = new XMLHttpRequest();
         console.log("Request");
-        request.open("GET", "http://192.168.0.13:8080/heon");
+        request.open("GET", "http://127.0.0.1:8001/heon");
         request.onload = () => {
             let raw = request.responseText;
             let data = JSON.parse(raw, ((key, value) => {
