@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import {HuePicker} from 'react-color'
-
+import HeonModalParamSys from './HeonModalParamSys'
 
 
 class HeonLight extends Component {
@@ -14,34 +14,44 @@ class HeonLight extends Component {
 
 
         this.state = {
-            nom: props.nom,
-            data: props.data,
-            nblight: props.nblight,
-            color: '#fff'
+
+
+            color: '#fff',
+            show: false
 
         };
 
         this.LightClick = this.LightClick.bind(this);
         this.MouseUp = this.MouseUp.bind(this);
         this.MouseDown = this.MouseDown.bind(this);
+        this.handleSupSys = this.handleSupSys.bind(this)
+
     }
 
     render() {
-        var data = {...this.state.data};
-        var nom = {...this.state.nom};
-        var nblight = {...this.state.nblight};
+
         var color = {...this.state.color};
 
-
-        //console.log(data)
+        //console.log(nom)
         return (
-            <button className="btn btn-danger" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
-                {nom} - {nblight}
-                <HuePicker color={color}  onChange={this.handleChangeComplete }/>
-
-            </button>
+            <div className="" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
+                {this.props.id} - {this.props.nom} - {this.props.nblight}
+                <input type="checkbox" checked data-toggle="toggle"></input>
+                <HuePicker color={color} onChange={this.handleChangeComplete}/>
+                <button className="btn" onClick={this.handleSupSys}>
+                    <span className="fa fa-remove"/>
+                </button>
+                <HeonModalParamSys id={this.props.id}/>
+            </div>
         );
 
+    }
+
+
+    handleSupSys() {
+        console.log("Suppression du Syst" + this.props.id)
+        //this.SupSysHeon(this.props.id);
+        this.props.SupHeon(this.props.id)
     }
 
     MouseDown() {
@@ -60,7 +70,7 @@ class HeonLight extends Component {
             console.log("COOOL")
 
         } else {
-            this.LightClick()
+            //this.LightClick()
         }
     }
 
@@ -68,8 +78,9 @@ class HeonLight extends Component {
     handleChangeComplete = (color, event) => {
         //console.log(color.rgb)
         this.setState({color: color.rgb});
-        var data = {...this.state.data.data};
+        var data = {...this.props.data.data};
         var color = {...this.state.color};
+
         // var allume = { ... this.state.allume}
         var light = Object.keys(data).map((i) => {
             //PIXEL
@@ -83,12 +94,12 @@ class HeonLight extends Component {
             )
         });
 
-        this.PostData(this.state.data)
+        this.PostData(this.props.data)
     };
 
 
     LightClick() {
-        var data = {...this.state.data.data};
+        var data = {...this.props.data.data};
         var color = {...this.state.color};
         // var allume = { ... this.state.allume}
         var light = Object.keys(data).map((i) => {
@@ -104,7 +115,7 @@ class HeonLight extends Component {
         });
         console.log(this.allume);
         this.allume = !this.allume;
-        this.PostData(this.state.data)
+        this.PostData(this.props.data)
 
     }
 
@@ -112,11 +123,12 @@ class HeonLight extends Component {
         //console.log(JSON.stringify(data))
         let request = new XMLHttpRequest();
         //console.log("Request POST");
-        request.open("POST", "http://192.168.0.13:8080/heon");
+        request.open("POST", "http://172.20.10.2:8001/heon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(data))
 
     }
+
 
 }
 
