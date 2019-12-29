@@ -7,7 +7,7 @@ class HeonLight extends Component {
 
 
     constructor(props) {
-        super();
+        super(props);
         var timer = null;
         var longClcik = false;
         var allume = false;
@@ -15,7 +15,7 @@ class HeonLight extends Component {
 
         this.state = {
 
-
+            data: this.props.data,
             color: '#fff',
             show: false
 
@@ -25,28 +25,54 @@ class HeonLight extends Component {
         this.MouseUp = this.MouseUp.bind(this);
         this.MouseDown = this.MouseDown.bind(this);
         this.handleSupSys = this.handleSupSys.bind(this)
+        this.handleChangeHeonConf = this.handleChangeHeonConf.bind(this)
 
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {
+            data: nextProps.data,
+        };
     }
 
     render() {
 
         var color = {...this.state.color};
+        var data = { ... this.state.data};
+        console.log(data.name)
 
-        //console.log(nom)
         return (
             <div className="" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
-                {this.props.id} - {this.props.nom} - {this.props.nblight}
+                {data.id} - {data.name} - {data.data.length}
                 <input type="checkbox" checked data-toggle="toggle"></input>
                 <HuePicker color={color} onChange={this.handleChangeComplete}/>
                 <button className="btn" onClick={this.handleSupSys}>
                     <span className="fa fa-remove"/>
                 </button>
-                <HeonModalParamSys id={this.props.id}/>
+                <HeonModalParamSys id={this.props.data} data={this.props.data} onChange={this.handleChangeHeonConf}/>
             </div>
         );
 
     }
 
+    handleChangeHeonConf(data) {
+
+        var temp = {... this.state.data}
+        temp.name = data.name
+        this.setState({data: temp})
+
+        this.ModifHeon(data)
+
+    }
+
+    ModifHeon(data){
+        //console.log(JSON.stringify(data))
+        let request = new XMLHttpRequest();
+        //console.log("Request POST");
+        request.open("POST", "http://172.20.10.2:8001/Modifheon");
+        //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.send(JSON.stringify(data))
+    }
 
     handleSupSys() {
         console.log("Suppression du Syst" + this.props.id)
@@ -118,6 +144,8 @@ class HeonLight extends Component {
         this.PostData(this.props.data)
 
     }
+
+
 
     PostData(data) {
         //console.log(JSON.stringify(data))

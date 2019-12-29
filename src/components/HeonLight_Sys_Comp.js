@@ -23,10 +23,11 @@ class HeonLight_Sys_Comp extends Component {
 
     render() {
         var HeonDataBase = {...this.state.HeonDataBase}
+
         const liste = Object.values(HeonDataBase)
             .map((heon) => (
                    <HeonLight
-                        data={heon}
+                         data={heon}
                          key={heon.id}
                          nblight={heon.data.length}
                          id={heon.id}
@@ -39,7 +40,7 @@ class HeonLight_Sys_Comp extends Component {
             )
 
 
-        console.log(liste)
+
         return (
 
             <div>
@@ -68,7 +69,8 @@ class HeonLight_Sys_Comp extends Component {
     }
 
     componentDidMount() {
-        this.GetonServer()
+        let timerId = setInterval(() => this.GetonServer(), 1000);
+
 
 
     }
