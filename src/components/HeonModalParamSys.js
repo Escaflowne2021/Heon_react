@@ -2,6 +2,7 @@ import React, {Component, useState} from "react";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import {Row, Container, Col} from "react-bootstrap";
 
 
 class HeonModalParamSys extends Component {
@@ -19,26 +20,43 @@ constructor(props) {
         ip: this.props.data.ip
     }
 
-    this.handleClose = this.handleClose.bind(this)
-    this.handleShow = this.handleShow.bind(this)
-    this.myChangeHandler = this.myChangeHandler.bind(this)
+    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.myChangeHandler = this.myChangeHandler.bind(this);
+    this.addLight = this.addLight.bind(this);
+    this.addPixel = this.addPixel.bind(this);
+    this.handleSaveAndClose = this.handleSaveAndClose.bind(this)
 
 
 }
 
-    handleClose(){
+    static getDerivedStateFromProps(nextProps, prevState) {
+    //console.log(prevState.data.data[0].id +"/"+ prevState.data.data[1].id)
+        return {
+            data: nextProps.data,
+        };
+    }
+
+    handleSaveAndClose(){
 
         this.setState({
             show: false
 
-        })
+        });
 
-       var data = { ... this.state.data}
-        data.name = this.state.nom
-        data.ip = this.state.ip
+        var data = { ...this.state.data};
+        data.name = this.state.nom;
+        data.ip = this.state.ip;
 
         this.props.onChange(data)
 
+    }
+
+    handleClose(){
+        this.setState({
+            show: false
+
+        });
     }
 
     handleShow(){
@@ -50,11 +68,61 @@ constructor(props) {
         let nam = event.target.name;
         let val = event.target.value;
         this.setState({[nam]: val});
-    }
+    };
+
 
     render() {
     //console.log(this.props.data)
-        var data = { ... this.state.data}
+
+
+        var data = { ...this.state.data};
+
+       /* const listeLumiere = Object.keys(data.data)
+            .sort((a,b)=>(console.log("a:"+a.data+" b:"+b.id)))
+            .map(heon => {
+                //console.log(data.data[heon]);
+               return(
+
+                   <div key={heon}>Lumiere {data.data[heon].numero} - id:{data.data[heon].id} - {data.data[heon].data.length}</div>
+               )
+        }
+
+
+        )*/
+
+         const listeLumiere = Object.values(data.data)
+             .sort((a,b)=>(parseInt(a.numero) - parseInt(b.numero)))
+             .map(heon => {
+                 //console.log(data.data[heon]);
+                return(
+
+                    <Container key={heon.id}>
+                        <Row>
+                            <Col xs={9}>
+                                <div  className="container-fluid"> Lumiere {heon.numero} - id:{heon.id} - nb Pixel {heon.data.length}</div>
+
+                            </Col>
+                            <Col>
+                                <Button variant="outline-dark" size="sm" onClick={() => this.addPixel(heon.id)}>
+                                    <span className="fa fa-plus"></span>
+                                </Button>
+                                <Button variant="outline-dark" size="sm">
+                                    <span className="fa fa-minus"></span>
+                                </Button>
+                            </Col>
+
+
+                        </Row>
+                    </Container>
+
+                )
+         }
+
+
+         )
+
+
+
         return (
             <>
                 <button className="btn" onClick={this.handleShow}>
@@ -72,17 +140,22 @@ constructor(props) {
                         <Form>
                             <Form.Group controlId="formBasicName">
                                 <Form.Label>Nom de la lumière</Form.Label>
-                                <Form.Control type="string" placeholder="Nom de la lumière" name="nom" onChange={this.myChangeHandler}/>
+                                <Form.Control defaultValue={this.state.nom} type="string" placeholder="Nom de la lumière" name="nom" onChange={this.myChangeHandler}/>
                             </Form.Group>
 
-                            <Form.Group controlId="formBasicName">
+                            <Form.Group controlId="formBasicIP">
                                 <Form.Label>Adresse IP</Form.Label>
-                                <Form.Control value={this.state.ip} type="string" placeholder="IP" name="ip" onChange={this.myChangeHandler}/>
+                                <Form.Control defaultValue={this.state.ip} type="string" placeholder="IP" name="ip" onChange={this.myChangeHandler}/>
                             </Form.Group>
 
 
-                            <Form.Group controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Check me out" />
+                            <Form.Group controlId="formBasiLight">
+                                <Form.Label>Lumière</Form.Label>
+
+                                {listeLumiere}
+                                <Button className="btn btn-success" onClick={this.addLight} >
+                                    <span className="fa fa-plus"></span>
+                                </Button>
                             </Form.Group>
 
                         </Form>
@@ -95,7 +168,7 @@ constructor(props) {
                         <button variant="secondary" onClick={this.handleClose}>
                             Fermer
                         </button>
-                        <button variant="primary" onClick={this.handleClose}>
+                        <button variant="primary" onClick={this.handleSaveAndClose}>
                             Sauvegarder
                         </button>
                     </Modal.Footer>
@@ -103,6 +176,15 @@ constructor(props) {
             </>
         )
 
+    }
+
+    addPixel(id){
+        console.log(id);
+    }
+
+    addLight(){
+        console.log("AJOUT de lumiere "+this.state.data.id)
+        this.props.AddLightSys(this.state.data.id)
     }
 
 

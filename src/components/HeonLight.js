@@ -25,6 +25,7 @@ class HeonLight extends Component {
         this.MouseUp = this.MouseUp.bind(this);
         this.MouseDown = this.MouseDown.bind(this);
         this.handleSupSys = this.handleSupSys.bind(this)
+        this.addLight = this.addLight.bind(this)
         this.handleChangeHeonConf = this.handleChangeHeonConf.bind(this)
 
     }
@@ -39,17 +40,22 @@ class HeonLight extends Component {
 
         var color = {...this.state.color};
         var data = { ... this.state.data};
-        console.log(data.name)
+        //console.log(data.name)
 
         return (
             <div className="" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
                 {data.id} - {data.name} - {data.data.length}
-                <input type="checkbox" checked data-toggle="toggle"></input>
+
                 <HuePicker color={color} onChange={this.handleChangeComplete}/>
                 <button className="btn" onClick={this.handleSupSys}>
                     <span className="fa fa-remove"/>
                 </button>
-                <HeonModalParamSys id={this.props.data} data={this.props.data} onChange={this.handleChangeHeonConf}/>
+                <HeonModalParamSys
+                    id={this.props.data}
+                    data={this.props.data}
+                    onChange={this.handleChangeHeonConf}
+                    AddLightSys={this.addLight}
+                />
             </div>
         );
 
@@ -64,14 +70,19 @@ class HeonLight extends Component {
         this.ModifHeon(data)
 
     }
+    addLight(id) {
+        this.props.AddLightSys(id)
+    }
 
     ModifHeon(data){
-        //console.log(JSON.stringify(data))
+
         let request = new XMLHttpRequest();
         //console.log("Request POST");
         request.open("POST", "http://172.20.10.2:8001/Modifheon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.send(JSON.stringify(data))
+        const t = JSON.stringify(data)
+        //console.log("JSON : " + t)
+        request.send(t)
     }
 
     handleSupSys() {
@@ -82,7 +93,7 @@ class HeonLight extends Component {
 
     MouseDown() {
         this.longClcik = false;
-        console.log("Debut du timer");
+        //console.log("Debut du timer");
         this.timer = setTimeout(() => {
             console.log("Fin timer");
             this.longClcik = true;
@@ -93,7 +104,7 @@ class HeonLight extends Component {
     MouseUp() {
         clearTimeout(this.timer);
         if (this.longClcik) {
-            console.log("COOOL")
+            //console.log("COOOL")
 
         } else {
             //this.LightClick()
