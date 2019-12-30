@@ -2,6 +2,7 @@ import React, {Component, useState} from "react";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import LigneLight from '../ComponentParamSys/LigneLight'
 import {Row, Container, Col} from "react-bootstrap";
 
 
@@ -77,51 +78,15 @@ constructor(props) {
 
         var data = { ...this.state.data};
 
-       /* const listeLumiere = Object.keys(data.data)
-            .sort((a,b)=>(console.log("a:"+a.data+" b:"+b.id)))
-            .map(heon => {
-                //console.log(data.data[heon]);
-               return(
-
-                   <div key={heon}>Lumiere {data.data[heon].numero} - id:{data.data[heon].id} - {data.data[heon].data.length}</div>
-               )
-        }
-
-
-        )*/
-
          const listeLumiere = Object.values(data.data)
              .sort((a,b)=>(parseInt(a.numero) - parseInt(b.numero)))
              .map(heon => {
-                 //console.log(data.data[heon]);
+
                 return(
-
-                    <Container key={heon.id}>
-                        <Row>
-                            <Col xs={9}>
-                                <div  className="container-fluid"> Lumiere {heon.numero} - id:{heon.id} - nb Pixel {heon.data.length}</div>
-
-                            </Col>
-                            <Col>
-                                <Button variant="outline-dark" size="sm" onClick={() => this.addPixel(heon.id)}>
-                                    <span className="fa fa-plus"></span>
-                                </Button>
-                                <Button variant="outline-dark" size="sm">
-                                    <span className="fa fa-minus"></span>
-                                </Button>
-                            </Col>
-
-
-                        </Row>
-                    </Container>
-
+                    <LigneLight key={heon.id} heon={heon} addPixel={this.addPixel}/>
                 )
          }
-
-
          )
-
-
 
         return (
             <>
