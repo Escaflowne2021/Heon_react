@@ -27,6 +27,7 @@ class HeonLight extends Component {
         this.handleSupSys = this.handleSupSys.bind(this)
         this.addLight = this.addLight.bind(this)
         this.handleChangeHeonConf = this.handleChangeHeonConf.bind(this)
+        this.removeID = this.removeID.bind(this)
 
     }
 
@@ -40,11 +41,11 @@ class HeonLight extends Component {
 
         var color = {...this.state.color};
         var data = { ... this.state.data};
-        //console.log(data.name)
+        //console.log(data.erreur_connexion)
 
         return (
             <div className="" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
-                {data.id} - {data.name} - {data.data.length}
+                {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
                 <HuePicker color={color} onChange={this.handleChangeComplete}/>
                 <button className="btn" onClick={this.handleSupSys}>
@@ -55,6 +56,7 @@ class HeonLight extends Component {
                     data={this.props.data}
                     onChange={this.handleChangeHeonConf}
                     AddLightSys={this.addLight}
+                    removeID={this.removeID}
                 />
             </div>
         );
@@ -72,6 +74,10 @@ class HeonLight extends Component {
     }
     addLight(id) {
         this.props.AddLightSys(id)
+    }
+
+    removeID(id){
+        this.props.removeID(id)
     }
 
     ModifHeon(data){

@@ -1,9 +1,8 @@
-import React, {Component, useState} from "react";
+import React, {Component, useState, Fragment} from "react";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import LigneLight from '../ComponentParamSys/LigneLight'
-import {Row, Container, Col} from "react-bootstrap";
 
 
 class HeonModalParamSys extends Component {
@@ -27,6 +26,7 @@ constructor(props) {
     this.addLight = this.addLight.bind(this);
     this.addPixel = this.addPixel.bind(this);
     this.handleSaveAndClose = this.handleSaveAndClose.bind(this)
+    this.removeID = this.removeID.bind(this)
 
 
 }
@@ -83,19 +83,26 @@ constructor(props) {
              .map(heon => {
 
                 return(
-                    <LigneLight key={heon.id} heon={heon} addPixel={this.addPixel}/>
+                    <LigneLight key={heon.id}
+                                heon={heon}
+                                addPixel={this.addPixel}
+                                removePixel={this.removeID}
+                                removeLight={this.removeID}
+                    />
                 )
          }
          )
 
         return (
-            <>
+            <Fragment>
                 <button className="btn" onClick={this.handleShow}>
                     <span className="fa fa-edit"></span>
                 </button>
-                <Modal show={this.state.show} onHide={this.handleClose}>
+
+
+                <Modal show={this.state.show} onHide={this.handleClose} size="lg" >
                     <Modal.Header closeButton>
-                        <Modal.Title>{this.state.nom}</Modal.Title>
+                        <Modal.Title >{this.state.nom}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
@@ -138,18 +145,24 @@ constructor(props) {
                         </button>
                     </Modal.Footer>
                 </Modal>
-            </>
+            </Fragment>
         )
 
     }
 
     addPixel(id){
         console.log(id);
+        this.props.AddLightSys(id)
     }
 
     addLight(){
         console.log("AJOUT de lumiere "+this.state.data.id)
         this.props.AddLightSys(this.state.data.id)
+    }
+
+    removeID(id){
+        console.log("Remove ID from Light "+id);
+        this.props.removeID(id)
     }
 
 

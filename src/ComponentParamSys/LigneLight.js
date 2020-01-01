@@ -3,28 +3,41 @@ import Button from "react-bootstrap/Button";
 import React from "react";
 
 
-
 const LigneLight = (props) => {
+
+    var LastPixel = props.heon.data[props.heon.data.length - 1]
 
     return (
         <Container>
             <Row>
-                <Col xs={9}>
-                    <div  className="container-fluid"> Lumiere {props.heon.numero} - id:{props.heon.id} - nb Pixel {props.heon.data.length}</div>
+                <Col className="text-center">
+                    <div > Lumiere {props.heon.numero} - id:{props.heon.id}  </div>
 
                 </Col>
-                <Col>
-                    <Button variant="outline-dark" size="sm" onClick={() => props.addPixel(props.heon.id)}>
+                <Col className="btext-center">
+
+
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.addPixel(props.heon.id)}>
                         <span className="fa fa-plus"></span>
                     </Button>
-                    <Button variant="outline-dark" size="sm">
+                    <div className="d-inline p-2">nb Pixel {props.heon.data.length}</div>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.removePixel(LastPixel.id)}>
                         <span className="fa fa-minus"></span>
                     </Button>
+
+                </Col>
+                <Col xs={1} className="text-center">
+                    <Button variant="outline-danger" size="sm"  onClick={() => props.removeLight(props.heon.id)}>
+                        <span className="fa fa-remove"/>
+                    </Button>
+
                 </Col>
 
 
             </Row>
         </Container>
+
+
     )
 }
 

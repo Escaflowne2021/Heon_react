@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a1bac5a-bfa9-413b-bb23-99e3f3a16fdd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ComponentParamSys/LigneLight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentParamSys/LigneLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentParamSys/LigneLight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeonLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HeonModalParamSys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonModalParamSys.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +83,7 @@
       <workItem from="1576668128592" duration="46351000" />
       <workItem from="1576875586819" duration="2285000" />
       <workItem from="1576920977559" duration="533000" />
-      <workItem from="1577537827128" duration="29246000" />
+      <workItem from="1577537827128" duration="36310000" />
     </task>
     <task id="LOCAL-00001" summary="Nettoyage">
       <created>1576710521452</created>
