@@ -1,6 +1,7 @@
 import React, {Component, useState} from "react";
 import {HuePicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
+import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
 
 
 class HeonLight extends Component {
@@ -17,7 +18,8 @@ class HeonLight extends Component {
 
             data: this.props.data,
             color: '#fff',
-            show: false
+            show: false,
+            showControleLight: true
 
         };
 
@@ -58,6 +60,13 @@ class HeonLight extends Component {
                     AddLightSys={this.addLight}
                     removeID={this.removeID}
                 />
+                <HeonModalControlLight
+                    show={this.state.showControleLight}
+                    onHide={()=>{this.setState({showControleLight:false})}}
+                    data={this.props.data}
+                    />
+
+
             </div>
         );
 
@@ -103,8 +112,13 @@ class HeonLight extends Component {
         this.timer = setTimeout(() => {
             console.log("Fin timer");
             this.longClcik = true;
+            this.setState({showControleLight: true})
         }, 1000)
 
+    }
+
+    handleCloseModalControlLight(){
+        this.setState({showControleLight: false})
     }
 
     MouseUp() {
