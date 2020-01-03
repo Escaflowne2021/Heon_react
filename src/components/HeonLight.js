@@ -43,7 +43,7 @@ class HeonLight extends Component {
 
         var color = {...this.state.color};
         var data = { ... this.state.data};
-        //console.log(data.erreur_connexion)
+
 
         return (
             <div className="" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>

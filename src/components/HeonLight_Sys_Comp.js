@@ -135,7 +135,7 @@ class HeonLight_Sys_Comp extends Component {
 
                 return value;
             }));
-            console.log(data);
+
             this.setState({id_database : data.id})
             this.setState({HeonDataBase: data.data});
         }

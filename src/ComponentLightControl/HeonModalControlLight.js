@@ -13,15 +13,24 @@ class HeonModalControlLight extends Component {
     }
 
     render(){
+        var data = { ... this.props.data}
+
+        const liste = Object.values(data.data)
+            .sort((a,b)=>(parseInt(a.numero) - parseInt(b.numero)))
+            .map(light => (
+
+            <LightControlLine key={light.id} data={light}/>
+        ))
+
 
         return(
             <Modal show={this.props.show} onHide={this.props.onHide} size="lg" >
                 <Modal.Header closeButton>
-                    <Modal.Title >Title</Modal.Title>
+                    <Modal.Title >{data.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     BODY
-                    <LightControlLine/>
+                    {liste}
 
                 </Modal.Body>
                 <Modal.Footer>
