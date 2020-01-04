@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a1bac5a-bfa9-413b-bb23-99e3f3a16fdd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentLightControl/HeonModalControlLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentLightControl/HeonModalControlLight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentLightControl/LightControlLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentLightControl/LightControlLine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeonLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
