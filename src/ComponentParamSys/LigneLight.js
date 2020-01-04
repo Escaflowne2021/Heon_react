@@ -11,10 +11,10 @@ const LigneLight = (props) => {
         <Container>
             <Row>
                 <Col className="text-center">
-                    <div > Lumiere {props.heon.numero} - id:{props.heon.id}  </div>
+                    <div> Lumiere {props.heon.numero} - id:{props.heon.id}  </div>
 
                 </Col>
-                <Col className="btext-center">
+                <Col className="btext-center mx-auto">
 
 
                     <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.addPixel(props.heon.id)}>

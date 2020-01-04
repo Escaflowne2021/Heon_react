@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import HeonLight from "./HeonLight";
+import REST from "./HeonRESTservice"
 
 
 class HeonLight_Sys_Comp extends Component {
@@ -11,12 +12,16 @@ class HeonLight_Sys_Comp extends Component {
             HeonDataBase: {},
             id_database: ""
         }
-        this.GetonServer = this.GetonServer.bind(this)
+
         this.handleSupHeon = this.handleSupHeon.bind(this)
         this.AddHeonbyId = this.AddHeonbyId.bind(this)
         this.handleCreateSystem = this.handleCreateSystem.bind(this)
         this.SupSysOnServer = this.SupSysOnServer.bind(this)
         this.handleAddLight = this.handleAddLight.bind(this)
+        REST.Get_Promise = REST.Get_Promise.bind(this)
+        REST.AddHeon_Promise = REST.AddHeon_Promise.bind(this)
+        //this.timerId = this.timerId.bind(this)
+
     }
 
 
@@ -81,30 +86,26 @@ class HeonLight_Sys_Comp extends Component {
     }
 
     componentDidMount() {
-        let timerId = setInterval(() => this.GetonServer(), 1000);
+
+        setInterval(() => REST.Get_Promise().then((value) => {this.setState({HeonDataBase: value.data})}) , 1000);
+
 
     }
+
 
 
 
     AddHeonbyId(id){
-        let request = new XMLHttpRequest();
-        console.log("Add "+ id);
-        request.open("POST", "http://172.20.10.2:8001/HeonAdd?id="+id);
-        request.onload = () => {
-            let raw = request.responseText;
-            let data = JSON.parse(raw, ((key, value) => {
 
-                return value;
-            }));
-            //console.log(data.data);
-            this.setState({HeonDataBase: data.data});
-        }
-        request.send(id);
-
+        REST.AddHeon_Promise(id).then((value) => this.setState({HeonDataBase: value.data}))
     }
 
-    SupSysOnServer(id){
+
+SupSysOnServer(id){
+        REST.SuppHeon_Promise(id).then((value => this.setState({HeonDataBase: value.data})))
+}
+
+/*    SupSysOnServer(id){
         let request = new XMLHttpRequest();
         //console.log("Request");
         request.open("POST", "http://172.20.10.2:8001/Supheon?id="+id);
@@ -120,27 +121,10 @@ class HeonLight_Sys_Comp extends Component {
         }
         request.send(id);
 
-    }
+    }*/
 
 
 
-
-    GetonServer() {
-        let request = new XMLHttpRequest();
-        //console.log("Request");
-        request.open("GET", "http://172.20.10.2:8001/heon");
-        request.onload = () => {
-            let raw = request.responseText;
-            let data = JSON.parse(raw, ((key, value) => {
-
-                return value;
-            }));
-
-            this.setState({id_database : data.id})
-            this.setState({HeonDataBase: data.data});
-        }
-        request.send();
-    }
 
 }
 
@@ -180,4 +164,21 @@ export default HeonLight_Sys_Comp
             this.setState({HeonDataBase: data.data});
         }
         request.send(id);
+    }*/
+
+/* AddHeonbyId(id){
+        let request = new XMLHttpRequest();
+        console.log("Add "+ id);
+        request.open("POST", "http://127.0.0.1:8001/HeonAdd?id="+id);
+        request.onload = () => {
+            let raw = request.responseText;
+            let data = JSON.parse(raw, ((key, value) => {
+
+                return value;
+            }));
+            //console.log(data.data);
+            this.setState({HeonDataBase: data.data});
+        }
+        request.send(id);
+
     }*/
