@@ -15,7 +15,6 @@ class HeonRESTservice{
         request.onload = () => {
             let raw = request.responseText;
             data = JSON.parse(raw, ((key, value) => {
-
                 return value;
             }));
             //console.log(data)
