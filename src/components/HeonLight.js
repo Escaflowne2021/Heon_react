@@ -47,7 +47,7 @@ class HeonLight extends Component {
 
         return (
             <div className="bg-success mx-auto" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
-                {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
+               Sys {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
                 <HuePicker color={color} onChange={this.handleChangeComplete}/>
                 <button className="btn" onClick={this.handleSupSys}>
