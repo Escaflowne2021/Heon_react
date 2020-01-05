@@ -19,7 +19,6 @@ class HeonRESTservice{
             }));
             //console.log(data)
             resolve(data)
-
         }
         request.send();
     })
