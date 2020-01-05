@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-var IPserv = "http://127.0.0.1:8001"
+var IPserv = "http://192.168.0.42:8001"
 
 class HeonRESTservice{
 

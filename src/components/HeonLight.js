@@ -93,7 +93,7 @@ class HeonLight extends Component {
 
         let request = new XMLHttpRequest();
         //console.log("Request POST");
-        request.open("POST", "http://172.20.10.2:8001/Modifheon");
+        request.open("POST", "http://192.168.0.42:8001/Modifheon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         const t = JSON.stringify(data)
         //console.log("JSON : " + t)
@@ -182,7 +182,7 @@ class HeonLight extends Component {
         //console.log(JSON.stringify(data))
         let request = new XMLHttpRequest();
         //console.log("Request POST");
-        request.open("POST", "http://172.20.10.2:8001/heon");
+        request.open("POST", "http://192.168.0.42:8001/heon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(data))
 
