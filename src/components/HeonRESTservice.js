@@ -30,7 +30,6 @@ class HeonRESTservice{
         request.onload = () => {
             let raw = request.responseText;
             let data = JSON.parse(raw, ((key, value) => {
-
                 return value;
             }));
             console.log(data);
