@@ -17,7 +17,7 @@ class HeonRESTservice{
             data = JSON.parse(raw, ((key, value) => {
                 return value;
             }));
-            //console.log(data)
+
             resolve(data)
         }
         request.send();
