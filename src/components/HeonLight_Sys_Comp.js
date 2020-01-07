@@ -47,7 +47,7 @@ class HeonLight_Sys_Comp extends Component {
         return (
 
             <div>
-                <div className="col-6 bg-light">HeonLight_Sys_Comp {this.state.id_database}
+                <div className="col-6 bg-light">HeonLight_Sys_Comp id:{this.state.id_database}
                 </div>
                 <div className="container">
                     {liste}
