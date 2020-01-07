@@ -154,9 +154,9 @@ class HeonLight extends Component {
             )
         });
 
-        //this.PostData(this.props.data)
+        this.PostData(this.props.data)
 
-        REST.ModifHeon(this.props.data)
+        //REST.ModifHeon(this.props.data)
     };
 
 
@@ -187,7 +187,7 @@ class HeonLight extends Component {
         //console.log(JSON.stringify(data))
         let request = new XMLHttpRequest();
         //console.log("Request POST");
-        request.open("POST", "http://192.168.0.169:8080/heon/heon");
+        request.open("POST", "http://192.168.0.169:8080/heon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(data))
 
