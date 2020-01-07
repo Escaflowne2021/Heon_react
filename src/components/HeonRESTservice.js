@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-var IPserv = "http://192.168.0.42:8001"
+var IPserv = "http://192.168.0.169:8080/heon"
 
 class HeonRESTservice{
 
@@ -14,12 +14,14 @@ class HeonRESTservice{
         request.open("GET", IPserv+"/heon");
         request.onload = () => {
             let raw = request.responseText;
+
             data = JSON.parse(raw, ((key, value) => {
                 return value;
             }));
-
+            console.log("data" + data)
             resolve(data)
         }
+
         request.send();
     })
 
@@ -59,15 +61,15 @@ SuppHeon_Promise = (id) => new Promise(resolve => {
 
 
      ModifHeon(data){
-
+        console.log("Modif From REST Class")
         let request = new XMLHttpRequest();
-        //console.log("Request POST");
+        console.log(data);
         request.open("POST", IPserv+"/Modifheon");
-        //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        const t = JSON.stringify(data)
-        //console.log("JSON : " + t)
-        request.send(t)
+        request.send(JSON.stringify(data))
     }
+
+
+
 
 }
 

@@ -1,7 +1,8 @@
 import React, {Component, useState} from "react";
-import {HuePicker} from 'react-color'
+import {SliderPicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
 import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
+import REST from './HeonRESTservice'
 
 
 class HeonLight extends Component {
@@ -49,7 +50,7 @@ class HeonLight extends Component {
             <div className="bg-success mx-auto" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
                Sys {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
-                <HuePicker color={color} onChange={this.handleChangeComplete}/>
+                <SliderPicker color={color} onChange={this.handleChangeComplete}/>
                 <button className="btn" onClick={this.handleSupSys}>
                     <span className="fa fa-remove"/>
                 </button>
@@ -78,7 +79,9 @@ class HeonLight extends Component {
         temp.name = data.name
         this.setState({data: temp})
 
-        this.ModifHeon(data)
+        //this.ModifHeon(data)
+        console.log("Modif")
+        REST.ModifHeon(data)
 
     }
     addLight(id) {
@@ -93,7 +96,7 @@ class HeonLight extends Component {
 
         let request = new XMLHttpRequest();
         //console.log("Request POST");
-        request.open("POST", "http://192.168.0.42:8001/Modifheon");
+        request.open("POST", "http://192.168.0.169:8080/heon/Modifheon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         const t = JSON.stringify(data)
         //console.log("JSON : " + t)
@@ -151,7 +154,9 @@ class HeonLight extends Component {
             )
         });
 
-        this.PostData(this.props.data)
+        //this.PostData(this.props.data)
+
+        REST.ModifHeon(this.props.data)
     };
 
 
@@ -182,7 +187,7 @@ class HeonLight extends Component {
         //console.log(JSON.stringify(data))
         let request = new XMLHttpRequest();
         //console.log("Request POST");
-        request.open("POST", "http://192.168.0.42:8001/heon");
+        request.open("POST", "http://192.168.0.169:8080/heon/heon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(data))
 
