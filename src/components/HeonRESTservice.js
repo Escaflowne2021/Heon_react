@@ -10,7 +10,6 @@ class HeonRESTservice{
     Get_Promise = () => new Promise(resolve =>{
         let data;
         let request = new XMLHttpRequest();
-        //console.log("Request");
         request.open("GET", IPserv+"/heon");
         request.onload = () => {
             let raw = request.responseText;
