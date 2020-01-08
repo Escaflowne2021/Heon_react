@@ -5,8 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
       <change beforePath="$PROJECT_DIR$/src/ComponentParamSys/LigneLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentParamSys/LigneLight.js" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/components/HeonLight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonLight_Sys_Comp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HeonRESTservice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeonRESTservice.js" afterDir="false" />
@@ -45,7 +48,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -87,7 +90,13 @@
       <workItem from="1576668128592" duration="46351000" />
       <workItem from="1576875586819" duration="2285000" />
       <workItem from="1576920977559" duration="533000" />
+<<<<<<< Updated upstream
       <workItem from="1577537827128" duration="48165000" />
+=======
+      <workItem from="1577537827128" duration="43915000" />
+      <workItem from="1578308398390" duration="6000" />
+      <workItem from="1578513026099" duration="43000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Nettoyage">
       <created>1576710521452</created>
@@ -150,10 +159,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="328" y="481" key="CommitChangelistDialog2/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576794020906" />
-    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog" timestamp="1576758148555">
+    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog" timestamp="1578167842039">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576758148555" />
+    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1578167842039" />
     <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1576912868822">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -170,10 +179,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576912868822" />
-    <state x="157" y="269" key="SettingsEditor" timestamp="1577565451159">
-      <screen x="0" y="23" width="1920" height="1117" />
+    <state x="209" y="308" key="SettingsEditor" timestamp="1578513067763">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="209" y="308" key="SettingsEditor/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1576921115231" />
+    <state x="209" y="308" key="SettingsEditor/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1578513067763" />
     <state x="157" y="269" key="SettingsEditor/0.23.1920.1116@0.23.1920.1116" timestamp="1577537911889" />
     <state x="157" y="269" key="SettingsEditor/0.23.1920.1117@0.23.1920.1117" timestamp="1577565451159" />
     <state x="983" y="491" key="git4idea.merge.GitPullDialog" timestamp="1576747704119">

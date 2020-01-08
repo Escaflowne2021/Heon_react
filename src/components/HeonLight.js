@@ -3,6 +3,7 @@ import {SliderPicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
 import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
 import REST from './HeonRESTservice'
+import withREST from "../hoc/withREST";
 
 
 class HeonLight extends Component {
@@ -20,7 +21,7 @@ class HeonLight extends Component {
             data: this.props.data,
             color: '#fff',
             show: false,
-            showControleLight: true
+            showControleLight: false
 
         };
 
@@ -51,7 +52,9 @@ class HeonLight extends Component {
                Sys {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
                 <SliderPicker color={color} onChange={this.handleChangeComplete}/>
-                <button className="btn" onClick={this.handleSupSys}>
+                {/*<button className="btn" onClick={this.handleSupSys}>*/}
+                <button className="btn" onClick={() => this.props.SupHeon(this.props.id)
+                    .then((value) => this.props.RefreshSys(value))}>
                     <span className="fa fa-remove"/>
                 </button>
                 <HeonModalParamSys
@@ -96,6 +99,7 @@ class HeonLight extends Component {
 
         let request = new XMLHttpRequest();
         //console.log("Request POST");
+
         request.open("POST", "http://192.168.0.169:8080/heon/Modifheon");
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         const t = JSON.stringify(data)
@@ -187,7 +191,9 @@ class HeonLight extends Component {
         //console.log(JSON.stringify(data))
         let request = new XMLHttpRequest();
         //console.log("Request POST");
+
         request.open("POST", "http://192.168.0.169:8080/heon");
+
         //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(JSON.stringify(data))
 
@@ -196,7 +202,8 @@ class HeonLight extends Component {
 
 }
 
+const WrappedComponent = withREST(HeonLight)
 
-export default HeonLight;
+export default WrappedComponent;
 
 

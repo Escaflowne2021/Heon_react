@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import LigneLight from '../ComponentParamSys/LigneLight'
+import withREST from "../hoc/withREST";
 
 
 class HeonModalParamSys extends Component {
@@ -125,7 +126,7 @@ constructor(props) {
                                 <Form.Label>Lumière</Form.Label>
 
                                 {listeLumiere}
-                                <Button className="btn btn-success" onClick={this.addLight} >
+                                <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id).then()} >
                                     <span className="fa fa-plus"></span>
                                 </Button>
                             </Form.Group>
@@ -168,5 +169,6 @@ constructor(props) {
 
 }
 
+const WrappedComponent = withREST(HeonModalParamSys)
 
-export default HeonModalParamSys
+export default WrappedComponent
