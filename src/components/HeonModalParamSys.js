@@ -24,15 +24,13 @@ constructor(props) {
     this.handleClose = this.handleClose.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.myChangeHandler = this.myChangeHandler.bind(this);
-    this.addLight = this.addLight.bind(this);
-    this.addPixel = this.addPixel.bind(this);
     this.handleSaveAndClose = this.handleSaveAndClose.bind(this)
-    this.removeID = this.removeID.bind(this)
+
 
 
 }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
+   static getDerivedStateFromProps(nextProps, prevState) {
     //console.log(prevState.data.data[0].id +"/"+ prevState.data.data[1].id)
         return {
             data: nextProps.data,
@@ -50,7 +48,10 @@ constructor(props) {
         data.name = this.state.nom;
         data.ip = this.state.ip;
 
-        this.props.onChange(data)
+         this.props.ModHeon(data).then((value) => {
+            console.log(value)
+            this.props.RefreshSys(value)
+        })
 
     }
 
@@ -74,7 +75,6 @@ constructor(props) {
 
 
     render() {
-    //console.log(this.props.data)
 
 
         var data = { ...this.state.data};
@@ -86,9 +86,8 @@ constructor(props) {
                 return(
                     <LigneLight key={heon.id}
                                 heon={heon}
-                                addPixel={this.addPixel}
-                                removePixel={this.removeID}
-                                removeLight={this.removeID}
+                                RefreshSys={this.props.RefreshSys}
+
                     />
                 )
          }
@@ -126,7 +125,7 @@ constructor(props) {
                                 <Form.Label>Lumière</Form.Label>
 
                                 {listeLumiere}
-                                <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id).then()} >
+                                <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id).then((value) => this.props.RefreshSys(value))} >
                                     <span className="fa fa-plus"></span>
                                 </Button>
                             </Form.Group>
@@ -149,21 +148,6 @@ constructor(props) {
             </Fragment>
         )
 
-    }
-
-    addPixel(id){
-        console.log(id);
-        this.props.AddLightSys(id)
-    }
-
-    addLight(){
-        console.log("AJOUT de lumiere "+this.state.data.id)
-        this.props.AddLightSys(this.state.data.id)
-    }
-
-    removeID(id){
-        console.log("Remove ID from Light "+id);
-        this.props.removeID(id)
     }
 
 

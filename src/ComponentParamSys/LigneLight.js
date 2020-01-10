@@ -1,6 +1,7 @@
 import {Col, Container, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import withREST from "../hoc/withREST";
 
 
 const LigneLight = (props) => {
@@ -17,17 +18,17 @@ const LigneLight = (props) => {
                 <Col className="btext-center mx-auto">
 
 
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.addPixel(props.heon.id)}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.AddHeon(props.heon.id).then(value => props.RefreshSys(value))}>
                         <span className="fa fa-plus"></span>
                     </Button>
                     <div className="d-inline p-2">nb Pixel {props.heon.data.length}</div>
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.removePixel(LastPixel.id)}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(LastPixel.id).then(value => props.RefreshSys(value))}>
                         <span className="fa fa-minus"></span>
                     </Button>
 
                 </Col>
                 <Col xs={1} className="text-center">
-                    <Button variant="outline-danger" size="sm"  onClick={() => props.removeLight(props.heon.id)}>
+                    <Button variant="outline-danger" size="sm"  onClick={() => props.SupHeon(props.heon.id).then(value => props.RefreshSys(value))}>
                         <span className="fa fa-remove"/>
                     </Button>
 
@@ -41,7 +42,9 @@ const LigneLight = (props) => {
     )
 }
 
-export default LigneLight
+const WrappedComponent = withREST(LigneLight)
+
+export default WrappedComponent
 
 
 /*

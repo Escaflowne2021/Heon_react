@@ -2,8 +2,8 @@ import React, {Component, useState} from "react";
 import {SliderPicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
 import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
-import REST from './HeonRESTservice'
 import withREST from "../hoc/withREST";
+import "./HeonSys.css"
 
 
 class HeonLight extends Component {
@@ -11,10 +11,6 @@ class HeonLight extends Component {
 
     constructor(props) {
         super(props);
-        var timer = null;
-        var longClcik = false;
-        var allume = false;
-
 
         this.state = {
 
@@ -28,18 +24,16 @@ class HeonLight extends Component {
         this.LightClick = this.LightClick.bind(this);
         this.MouseUp = this.MouseUp.bind(this);
         this.MouseDown = this.MouseDown.bind(this);
-        this.handleSupSys = this.handleSupSys.bind(this)
-        this.addLight = this.addLight.bind(this)
-        this.handleChangeHeonConf = this.handleChangeHeonConf.bind(this)
-        this.removeID = this.removeID.bind(this)
 
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
+        //console.log(prevState.data.data[0].id +"/"+ prevState.data.data[1].id)
         return {
             data: nextProps.data,
         };
     }
+
 
     render() {
 
@@ -52,22 +46,19 @@ class HeonLight extends Component {
                Sys {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
                 <SliderPicker color={color} onChange={this.handleChangeComplete}/>
-                {/*<button className="btn" onClick={this.handleSupSys}>*/}
                 <button className="btn" onClick={() => this.props.SupHeon(this.props.id)
                     .then((value) => this.props.RefreshSys(value))}>
                     <span className="fa fa-remove"/>
                 </button>
                 <HeonModalParamSys
-                    id={this.props.data}
                     data={this.props.data}
-                    onChange={this.handleChangeHeonConf}
-                    AddLightSys={this.addLight}
-                    removeID={this.removeID}
+                    RefreshSys={this.props.RefreshSys}
                 />
                 <HeonModalControlLight
                     show={this.state.showControleLight}
                     onHide={()=>{this.setState({showControleLight:false})}}
                     data={this.props.data}
+                    RefreshSys={this.props.RefreshSys}
                     />
 
 
@@ -76,42 +67,7 @@ class HeonLight extends Component {
 
     }
 
-    handleChangeHeonConf(data) {
 
-        var temp = {... this.state.data}
-        temp.name = data.name
-        this.setState({data: temp})
-
-        //this.ModifHeon(data)
-        console.log("Modif")
-        REST.ModifHeon(data)
-
-    }
-    addLight(id) {
-        this.props.AddLightSys(id)
-    }
-
-    removeID(id){
-        this.props.removeID(id)
-    }
-
-    ModifHeon(data){
-
-        let request = new XMLHttpRequest();
-        //console.log("Request POST");
-
-        request.open("POST", "http://192.168.0.169:8080/heon/Modifheon");
-        //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        const t = JSON.stringify(data)
-        //console.log("JSON : " + t)
-        request.send(t)
-    }
-
-    handleSupSys() {
-        console.log("Suppression du Syst" + this.props.id)
-        //this.SupSysHeon(this.props.id);
-        this.props.SupHeon(this.props.id)
-    }
 
     MouseDown() {
         this.longClcik = false;
@@ -122,10 +78,6 @@ class HeonLight extends Component {
             this.setState({showControleLight: true})
         }, 1000)
 
-    }
-
-    handleCloseModalControlLight(){
-        this.setState({showControleLight: false})
     }
 
     MouseUp() {
@@ -207,3 +159,21 @@ const WrappedComponent = withREST(HeonLight)
 export default WrappedComponent;
 
 
+
+/*
+handleChangeHeonConf(data) {
+
+    var temp = {... this.state.data}
+    temp.name = data.name
+    this.setState({data: temp})
+
+    //this.ModifHeon(data)
+    console.log("Modif")
+    REST.ModifHeon(data)
+
+}*/
+
+/*
+addLight(id) {
+    this.props.AddLightSys(id)
+}*/

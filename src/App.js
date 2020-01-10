@@ -10,7 +10,8 @@ class App extends Component {
         super(props)
 
         this.state = {
-            HeonDataBase: {}
+            HeonDataBase: {},
+            id_database: ""
         }
     }
 
@@ -23,6 +24,7 @@ class App extends Component {
                     <HeonLight_Sys_Comp
                     RefreshSys={(data) =>this.setState({HeonDataBase:data})}
                     HeonDataBase={this.state.HeonDataBase}
+                    id_database={this.state.id_database}
                     />
 
 
@@ -36,7 +38,7 @@ class App extends Component {
 
         setInterval(() => REST.Get_Promise().then((value) => {
             this.setState({HeonDataBase: value, id_database:value.id})
-        }), 1000);
+        }), 2000);
 
 
     }
