@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HeonLight_Sys_Comp from "./components/HeonLight_Sys_Comp";
-import REST from "./components/HeonRESTservice";
 import DataContext from "./DataContext"
+import withREST from "./hoc/withREST";
 
 
 class App extends Component {
@@ -44,9 +44,14 @@ class App extends Component {
     }
 
     componentDidMount() {
-        setInterval(() => REST.Get_Promise().then((value) => {
-            this.setState({HeonDataBaseContext: value, id_database: value.id})}), 2000);
+       /* setInterval(() => REST.Get_Promise().then((value) => {
+            this.setState({HeonDataBaseContext: value, id_database: value.id})}), 2000);*/
+        setInterval(() => this.props.Get_Promise().then(value => {
+            this.setState({HeonDataBaseContext:value})
+        }), 2000)
     }
 }
 
-export default App;
+
+const WrappedComponent = withREST(App)
+export default WrappedComponent;

@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import React, {Component} from "react";
-import REST from "../components/HeonRESTservice"
 import {HuePicker} from 'react-color'
+import withREST from "../hoc/withREST";
 
 
 class LightControlLine extends Component {
@@ -45,11 +45,11 @@ class LightControlLine extends Component {
 
             }
         )
-
-        REST.ModifHeon(this.state.data)
+        this.props.ModHeon(this.state.data)
+        //REST.ModifHeon(this.state.data)
     }
 
 }
 
-
-export default LightControlLine
+const WrappedComponent = withREST(LightControlLine)
+export default WrappedComponent

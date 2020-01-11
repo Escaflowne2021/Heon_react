@@ -64,6 +64,24 @@ const withREST = WrappedComponent => (
 
         })
 
+        Get_Promise = () => new Promise(resolve =>{
+            console.log("%cGET Promise", "font-weight: bold;color: orange");
+            let request = new XMLHttpRequest();
+            request.open("GET", IPserv+"/heon");
+            request.onload = () => {
+                let raw = request.responseText;
+
+                let data = JSON.parse(raw, ((key, value) => {
+                    return value;
+                }));
+                console.log(data)
+                this.context.RefreshData(data)
+                resolve(data)
+            }
+
+            request.send();
+        })
+
 
         render() {
             //console.log("HOC REST")
@@ -72,7 +90,8 @@ const withREST = WrappedComponent => (
                     AddHeon={this.AddHeon_Promise}
                     SupHeon={this.SuppHeon_Promise}
                     ModHeon={this.ModifHeon_Promise}
-                    RefreshSys={this.props.RefreshSys}
+                    Get_Promise={this.Get_Promise}
+
                     {... this.props}/>
             )
         }

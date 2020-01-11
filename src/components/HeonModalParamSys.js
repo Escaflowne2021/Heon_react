@@ -122,7 +122,7 @@ constructor(props) {
                                 <Form.Label>Lumière</Form.Label>
 
                                 {listeLumiere}
-                                <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id).then((value) => this.props.RefreshSys(value))} >
+                                <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id)} >
                                     <span className="fa fa-plus"></span>
                                 </Button>
                             </Form.Group>
