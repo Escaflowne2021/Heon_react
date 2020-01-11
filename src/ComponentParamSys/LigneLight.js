@@ -18,17 +18,17 @@ const LigneLight = (props) => {
                 <Col className="btext-center mx-auto">
 
 
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.AddHeon(props.heon.id).then(value => props.RefreshSys(value))}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.AddHeon(props.heon.id)}>
                         <span className="fa fa-plus"></span>
                     </Button>
                     <div className="d-inline p-2">nb Pixel {props.heon.data.length}</div>
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(LastPixel.id).then(value => props.RefreshSys(value))}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(LastPixel.id)}>
                         <span className="fa fa-minus"></span>
                     </Button>
 
                 </Col>
                 <Col xs={1} className="text-center">
-                    <Button variant="outline-danger" size="sm"  onClick={() => props.SupHeon(props.heon.id).then(value => props.RefreshSys(value))}>
+                    <Button variant="outline-danger" size="sm"  onClick={() => props.SupHeon(props.heon.id)}>
                         <span className="fa fa-remove"/>
                     </Button>
 

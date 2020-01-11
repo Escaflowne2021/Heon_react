@@ -3,7 +3,7 @@ import {SliderPicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
 import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
 import withREST from "../hoc/withREST";
-import "./HeonSys.css"
+import  {HeonDataBaseContext} from "../DataContext";
 
 
 class HeonLight extends Component {
@@ -42,27 +42,32 @@ class HeonLight extends Component {
 
 
         return (
-            <div className="bg-success mx-auto" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
-               Sys {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
-
-                <SliderPicker color={color} onChange={this.handleChangeComplete}/>
-                <button className="btn" onClick={() => this.props.SupHeon(this.props.id)
-                    .then((value) => this.props.RefreshSys(value))}>
-                    <span className="fa fa-remove"/>
-                </button>
-                <HeonModalParamSys
-                    data={this.props.data}
-                    RefreshSys={this.props.RefreshSys}
-                />
-                <HeonModalControlLight
-                    show={this.state.showControleLight}
-                    onHide={()=>{this.setState({showControleLight:false})}}
-                    data={this.props.data}
-                    RefreshSys={this.props.RefreshSys}
-                    />
 
 
-            </div>
+                    <div className="bg-success mx-auto" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
+
+                        Sys  {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
+
+                        <SliderPicker color={color} onChange={this.handleChangeComplete}/>
+                        <button className="btn" onClick={() => this.props.SupHeon(data.id)}>
+                            <span className="fa fa-remove"/>
+                        </button>
+                        <HeonModalParamSys
+                            data={this.props.data}
+
+                        />
+                        <HeonModalControlLight
+                            show={this.state.showControleLight}
+                            onHide={()=>{this.setState({showControleLight:false})}}
+                            data={this.props.data}
+
+                        />
+
+
+                    </div>
+
+
+
         );
 
     }

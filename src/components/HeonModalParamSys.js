@@ -48,10 +48,7 @@ constructor(props) {
         data.name = this.state.nom;
         data.ip = this.state.ip;
 
-         this.props.ModHeon(data).then((value) => {
-            console.log(value)
-            this.props.RefreshSys(value)
-        })
+         this.props.ModHeon(data)
 
     }
 

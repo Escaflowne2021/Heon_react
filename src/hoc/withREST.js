@@ -1,10 +1,15 @@
 import React, {Component} from "react";
+import DataContext from "../DataContext";
 
 
 var IPserv = "http://192.168.0.169:8080"
 
+
 const withREST = WrappedComponent => (
+
     class REST extends Component {
+
+        static contextType = DataContext;
 
         AddHeon_Promise = (id) => new Promise(resolve => {
             let request = new XMLHttpRequest();
@@ -15,8 +20,8 @@ const withREST = WrappedComponent => (
                 let data = JSON.parse(raw, ((key, value) => {
                     return value;
                 }));
-                console.log(data);
-
+                //console.log(data);
+                this.context.RefreshData(data)
                 resolve(data)
             }
             request.send(id);
@@ -33,7 +38,7 @@ const withREST = WrappedComponent => (
 
                     return (value);
                 }));
-
+                this.context.RefreshData(data)
                 resolve(data)
                 //this.setState({HeonDataBase: data.data});
             }
@@ -51,28 +56,13 @@ const withREST = WrappedComponent => (
 
                     return (value);
                 }));
-                //console.log(data)
+                this.context.RefreshData(data)
                 resolve(data)
 
             }
             request.send(JSON.stringify(heon))
 
         })
-
-        ModifHeon(data){
-            console.log("%cMOD by HOC id: :"+ data.id, "font-weight: bold;color: orange");
-            let request = new XMLHttpRequest();
-            console.log(data);
-            request.open("POST", IPserv+"/Modifheon");
-            request.send(JSON.stringify(data))
-
-
-
-
-
-
-        }
-
 
 
         render() {
