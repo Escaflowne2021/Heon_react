@@ -13,17 +13,20 @@ const LigneLight = (props) => {
             <Row>
                 <Col className="text-center">
                     <div> Lumiere {props.heon.numero} - id:{props.heon.id}  </div>
-
                 </Col>
                 <Col className="btext-center mx-auto">
-
-
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm"  onClick={() => props.AddHeon(props.heon.id,10)}>
+                    +10
+                    </Button>
                     <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.AddHeon(props.heon.id)}>
                         <span className="fa fa-plus"></span>
                     </Button>
                     <div className="d-inline p-2">nb Pixel {props.heon.data.length}</div>
                     <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(LastPixel.id)}>
                         <span className="fa fa-minus"></span>
+                    </Button>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(props.heon.id,10)}>
+                        -10
                     </Button>
 
                 </Col>

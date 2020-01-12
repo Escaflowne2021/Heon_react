@@ -1,10 +1,12 @@
 import React, {Component, useState, Fragment} from "react";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from "react-bootstrap/Tabs";
 import Button from 'react-bootstrap/Button'
 import LigneLight from '../ComponentParamSys/LigneLight'
 import withREST from "../hoc/withREST";
-
+import LightGraphique from "../ComponentParamSys/lightGraphique"
 
 class HeonModalParamSys extends Component {
 
@@ -118,14 +120,26 @@ constructor(props) {
                             </Form.Group>
 
 
-                            <Form.Group controlId="formBasiLight">
-                                <Form.Label>Lumière</Form.Label>
+                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                            <Tab eventKey="home" title="Configuration Light">
+                                <Form.Group controlId="formBasiLight">
+                                    <Form.Label>Lumière</Form.Label>
 
-                                {listeLumiere}
-                                <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id)} >
-                                    <span className="fa fa-plus"></span>
-                                </Button>
-                            </Form.Group>
+                                    {listeLumiere}
+                                    <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id)} >
+                                        <span className="fa fa-plus"></span>
+                                    </Button>
+                                </Form.Group>
+                            </Tab>
+                            <Tab eventKey="profile" title="Configuration Graphique">
+                                <LightGraphique/>
+                            </Tab>
+
+                        </Tabs>
+
+
+
+
 
                         </Form>
 

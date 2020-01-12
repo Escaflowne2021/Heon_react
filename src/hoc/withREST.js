@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import DataContext from "../DataContext";
 
 
-var IPserv = "http://192.168.0.169:8080"
+var IPserv = "http://127.0.0.1:8001"
 
 
 const withREST = WrappedComponent => (
@@ -11,10 +11,10 @@ const withREST = WrappedComponent => (
 
         static contextType = DataContext;
 
-        AddHeon_Promise = (id) => new Promise(resolve => {
+        AddHeon_Promise = (id,nb=1) => new Promise(resolve => {
             let request = new XMLHttpRequest();
             console.log("%cADD by HOC id: :"+ id, "font-weight: bold;color: orange");
-            request.open("POST", IPserv +"/HeonAdd?id="+id);
+            request.open("POST", IPserv +"/HeonAdd?id="+id+"&nb="+nb);
             request.onload = () => {
                 let raw = request.responseText;
                 let data = JSON.parse(raw, ((key, value) => {
@@ -24,14 +24,14 @@ const withREST = WrappedComponent => (
                 this.context.RefreshData(data)
                 resolve(data)
             }
-            request.send(id);
+            request.send(id,nb);
         })
 
 
-        SuppHeon_Promise = (id) => new Promise(resolve => {
+        SuppHeon_Promise = (id,nb=0) => new Promise(resolve => {
             let request = new XMLHttpRequest();
             console.log("%cSUPP by HOC id: :"+ id, "font-weight: bold;color: orange");
-            request.open("POST", IPserv +"/Supheon?id="+id);
+            request.open("POST", IPserv +"/Supheon?id="+id+"&nb="+nb);
             request.onload = () => {
                 let raw = request.responseText;
                 let data = JSON.parse(raw, ((key, value) => {
@@ -91,7 +91,6 @@ const withREST = WrappedComponent => (
                     SupHeon={this.SuppHeon_Promise}
                     ModHeon={this.ModifHeon_Promise}
                     Get_Promise={this.Get_Promise}
-
                     {... this.props}/>
             )
         }
