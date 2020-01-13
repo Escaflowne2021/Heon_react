@@ -1,0 +1,15 @@
+.light{
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+
+  &.Selected {
+    border-color: lightcoral;
+    border-width: 3px;
+  }
+  &.noSelected {
+    border-color: snow;
+  }
+
+}
+

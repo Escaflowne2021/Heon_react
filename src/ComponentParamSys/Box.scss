@@ -1,0 +1,18 @@
+
+.box {
+  border-color: lightslategray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15%;
+  height: auto;
+  width: auto;
+  text-align: center;
+  &:hover{
+    //background-color: aquamarine;
+  }
+
+}
+
+.selected {
+  background-color: lightgreen;
+}

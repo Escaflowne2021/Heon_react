@@ -16,7 +16,7 @@ class HeonModalParamSys extends Component {
 
 
         this.state = {
-            show: false,
+            show: true, //DEV ------------------------
             data: this.props.data,
             nom: this.props.data.name,
             ip: this.props.data.ip
@@ -83,7 +83,7 @@ class HeonModalParamSys extends Component {
                     return (
                         <LigneLight key={heon.id}
                                     heon={heon}
-                                    RefreshSys={this.props.RefreshSys}
+                                   // RefreshSys={this.props.RefreshSys}
 
                         />
                     )
@@ -104,7 +104,7 @@ class HeonModalParamSys extends Component {
                     <Modal.Body>
 
 
-                        <Tabs defaultActiveKey="conf" id="uncontrolled-tab-example"  >
+                        <Tabs defaultActiveKey="graph" id="uncontrolled-tab-example"  >
                             <Tab eventKey="conf" title="Configuration Light" >
                                 <Form>
                                     <Form.Group controlId="formBasicName">
@@ -123,7 +123,8 @@ class HeonModalParamSys extends Component {
                                 <Form.Group controlId="formBasiLight">
                                     <Form.Label>Lumière</Form.Label>
 
-                                    {listeLumiere}
+                                         {listeLumiere}
+
                                     <Button className="btn btn-success"
                                             onClick={() => this.props.AddHeon(this.state.data.id)}>
                                         <span className="fa fa-plus"></span>
@@ -133,7 +134,7 @@ class HeonModalParamSys extends Component {
 
 
                             <Tab eventKey="graph" title="Configuration Graphique">
-                                <LightGraphique/>
+                                <LightGraphique data={data.data}/>
                             </Tab>
 
                         </Tabs>

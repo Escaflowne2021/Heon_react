@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import DataContext from "../DataContext";
 
 
-var IPserv = "http://127.0.0.1:8001"
+var IPserv = "http://192.168.0.13:8080"
 
 
 const withREST = WrappedComponent => (
@@ -65,7 +65,7 @@ const withREST = WrappedComponent => (
         })
 
         Get_Promise = () => new Promise(resolve =>{
-            console.log("%cGET Promise", "font-weight: bold;color: orange");
+            //console.log("%cGET Promise", "font-weight: bold;color: orange");
             let request = new XMLHttpRequest();
             request.open("GET", IPserv+"/heon");
             request.onload = () => {
@@ -74,7 +74,7 @@ const withREST = WrappedComponent => (
                 let data = JSON.parse(raw, ((key, value) => {
                     return value;
                 }));
-                console.log(data)
+                //console.log(data)
                 this.context.RefreshData(data)
                 resolve(data)
             }

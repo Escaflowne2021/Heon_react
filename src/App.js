@@ -14,9 +14,10 @@ class App extends Component {
         super(props)
 
         this.state = {
-            HeonDataBaseContext: "eeee",
+            HeonDataBaseContext: "",
             id_database: "",
-            RefreshData: this.RefreshData
+            RefreshData: this.RefreshData,
+
         }
     }
 
@@ -42,6 +43,8 @@ class App extends Component {
         console.log(New_data)
         this.setState({HeonDataBaseContext:New_data})
     }
+
+
 
     componentDidMount() {
        /* setInterval(() => REST.Get_Promise().then((value) => {
