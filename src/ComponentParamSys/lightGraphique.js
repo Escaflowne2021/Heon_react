@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./Graph.scss"
 
 class LightGraphique extends Component {
 
@@ -15,14 +16,23 @@ class LightGraphique extends Component {
     }
 
     render() {
+        var liste = []
+         for(let i = 0 ; i < 100 ; i++){
+            liste.push(<div className="box" onClick={() => this.boxClick(i)}>{i} </div>)
+        }
 
         return(
-            <div>
+            <div className="grid">
+                {liste}
+                <div className="spec">S</div>
 
-                LightGraphque
 
             </div>
         )
+    }
+
+    boxClick(i){
+        console.log("click on "+i)
     }
 }
 

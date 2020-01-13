@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 1px;
+  grid-auto-columns: minmax(50px, 50px);
+  height: 400px;
+  width: 400px;
+}
+
+.box {
+  background-color: cornflowerblue;
+  height: auto;
+  width: auto;
+  &:hover{
+    background-color: aquamarine;
+  }
+
+  .selected {
+
+    background-color: yellow;
+  }
+
+
+}
+
+.spec {
+  position: relative;
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}

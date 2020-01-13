@@ -11,57 +11,55 @@ import LightGraphique from "../ComponentParamSys/lightGraphique"
 class HeonModalParamSys extends Component {
 
 
-constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
 
+        this.state = {
+            show: false,
+            data: this.props.data,
+            nom: this.props.data.name,
+            ip: this.props.data.ip
+        }
 
-    this.state = {
-        show: false,
-        data: this.props.data,
-        nom: this.props.data.name,
-        ip: this.props.data.ip
+        this.handleClose = this.handleClose.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        this.myChangeHandler = this.myChangeHandler.bind(this);
+        this.handleSaveAndClose = this.handleSaveAndClose.bind(this)
+
+
     }
 
-    this.handleClose = this.handleClose.bind(this);
-    this.handleShow = this.handleShow.bind(this);
-    this.myChangeHandler = this.myChangeHandler.bind(this);
-    this.handleSaveAndClose = this.handleSaveAndClose.bind(this)
-
-
-
-}
-
-   static getDerivedStateFromProps(nextProps, prevState) {
-    //console.log(prevState.data.data[0].id +"/"+ prevState.data.data[1].id)
+    static getDerivedStateFromProps(nextProps, prevState) {
+        //console.log(prevState.data.data[0].id +"/"+ prevState.data.data[1].id)
         return {
             data: nextProps.data,
         };
     }
 
-    handleSaveAndClose(){
+    handleSaveAndClose() {
 
         this.setState({
             show: false
 
         });
 
-        var data = { ...this.state.data};
+        var data = {...this.state.data};
         data.name = this.state.nom;
         data.ip = this.state.ip;
 
-         this.props.ModHeon(data)
+        this.props.ModHeon(data)
 
     }
 
-    handleClose(){
+    handleClose() {
         this.setState({
             show: false
 
         });
     }
 
-    handleShow(){
+    handleShow() {
         this.setState({show: true})
     }
 
@@ -76,21 +74,21 @@ constructor(props) {
     render() {
 
 
-        var data = { ...this.state.data};
+        var data = {...this.state.data};
 
-         const listeLumiere = Object.values(data.data)
-             .sort((a,b)=>(parseInt(a.numero) - parseInt(b.numero)))
-             .map(heon => {
+        const listeLumiere = Object.values(data.data)
+            .sort((a, b) => (parseInt(a.numero) - parseInt(b.numero)))
+            .map(heon => {
 
-                return(
-                    <LigneLight key={heon.id}
-                                heon={heon}
-                                RefreshSys={this.props.RefreshSys}
+                    return (
+                        <LigneLight key={heon.id}
+                                    heon={heon}
+                                    RefreshSys={this.props.RefreshSys}
 
-                    />
-                )
-         }
-         )
+                        />
+                    )
+                }
+            )
 
         return (
             <Fragment>
@@ -99,51 +97,46 @@ constructor(props) {
                 </button>
 
 
-                <Modal show={this.state.show} onHide={this.handleClose} size="lg" >
+                <Modal show={this.state.show} onHide={this.handleClose} size="lg">
                     <Modal.Header closeButton>
-                        <Modal.Title >{this.state.nom}</Modal.Title>
+                        <Modal.Title>{this.state.nom}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
 
+                        <Tabs defaultActiveKey="conf" id="uncontrolled-tab-example"  >
+                            <Tab eventKey="conf" title="Configuration Light" >
+                                <Form>
+                                    <Form.Group controlId="formBasicName">
+                                        <Form.Label>Nom de la lumière</Form.Label>
+                                        <Form.Control defaultValue={this.state.nom} type="string"
+                                                      placeholder="Nom de la lumière" name="nom"
+                                                      onChange={this.myChangeHandler}/>
+                                    </Form.Group>
 
-
-                        <Form>
-                            <Form.Group controlId="formBasicName">
-                                <Form.Label>Nom de la lumière</Form.Label>
-                                <Form.Control defaultValue={this.state.nom} type="string" placeholder="Nom de la lumière" name="nom" onChange={this.myChangeHandler}/>
-                            </Form.Group>
-
-                            <Form.Group controlId="formBasicIP">
-                                <Form.Label>Adresse IP</Form.Label>
-                                <Form.Control defaultValue={this.state.ip} type="string" placeholder="IP" name="ip" onChange={this.myChangeHandler}/>
-                            </Form.Group>
-
-
-                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                            <Tab eventKey="home" title="Configuration Light">
+                                    <Form.Group controlId="formBasicIP">
+                                        <Form.Label>Adresse IP</Form.Label>
+                                        <Form.Control defaultValue={this.state.ip} type="string" placeholder="IP"
+                                                      name="ip" onChange={this.myChangeHandler}/>
+                                    </Form.Group>
+                                </Form>
                                 <Form.Group controlId="formBasiLight">
                                     <Form.Label>Lumière</Form.Label>
 
                                     {listeLumiere}
-                                    <Button className="btn btn-success" onClick={() => this.props.AddHeon(this.state.data.id)} >
+                                    <Button className="btn btn-success"
+                                            onClick={() => this.props.AddHeon(this.state.data.id)}>
                                         <span className="fa fa-plus"></span>
                                     </Button>
                                 </Form.Group>
                             </Tab>
-                            <Tab eventKey="profile" title="Configuration Graphique">
+
+
+                            <Tab eventKey="graph" title="Configuration Graphique">
                                 <LightGraphique/>
                             </Tab>
 
                         </Tabs>
-
-
-
-
-
-                        </Form>
-
-
 
 
                     </Modal.Body>
