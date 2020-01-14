@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button'
 import LigneLight from '../ComponentParamSys/LigneLight'
 import withREST from "../hoc/withREST";
 import LightGraphique from "../ComponentParamSys/lightGraphique"
+import LightVirtuelGraph from "../ComponentParamSys/lightVirtuelGraph";
+import BoxContext from "../ComponentParamSys/BoxContext"
 
 class HeonModalParamSys extends Component {
 
@@ -135,6 +137,9 @@ class HeonModalParamSys extends Component {
 
                             <Tab eventKey="graph" title="Configuration Graphique">
                                 <LightGraphique data={data.data}/>
+                            </Tab>
+                            <Tab eventKey="graphVirtuelle" title="Gestion Lumière Virtuelle">
+                                <LightVirtuelGraph/>
                             </Tab>
 
                         </Tabs>

@@ -7,12 +7,19 @@
   height: auto;
   width: auto;
   text-align: center;
+
   &:hover{
     //background-color: aquamarine;
   }
+
+
 
 }
 
 .selected {
   background-color: lightgreen;
+}
+
+.notme {
+  background-color: darkgrey;
 }
