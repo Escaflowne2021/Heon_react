@@ -40,24 +40,17 @@ class LightGraphique extends Component {
 
         for (let y = 0; y < Y; y++) {
             for (let x = 0; x < X; x++) {
-                let numero = y *Y +x +1
-                let rst =  Object.values(this.state.BoxSelected).find(a => a.num == numero )
-
+                let numero = y * Y + x + 1
+                let rst = Object.values(this.state.BoxSelected).find(a => a.num == numero)
                 var selec = false
                 let selecByMe = true
                 if (rst != null) {
                     selec = rst.isSelected
-                    if (rst.id != this.state.id_of_light_selected){
+                    if (rst.id != this.state.id_of_light_selected) {
                         selecByMe = false
-
                     }
                     //console.log(rst)
-
-
                 }
-
-
-
                 liste.push(<BoxLight key={y * Y + x}
                                      num={y * Y + x + 1}
                                      changeState={this.handleBoxChange}
@@ -89,11 +82,11 @@ class LightGraphique extends Component {
         var trouve = false;
 
         Object.values(this.state.BoxSelected).map(box => {
-            if (box.num == num ) {
+            if (box.num == num) {
                 box.isSelected = isSelected
                 box.id = this.state.id_of_light_selected
                 trouve = true
-                this.setState({BoxSelected:this.state.BoxSelected})
+                this.setState({BoxSelected: this.state.BoxSelected})
             }
         })
 
@@ -108,7 +101,8 @@ class LightGraphique extends Component {
             //liste.push(box)
             this.setState({BoxSelected: [...this.state.BoxSelected, box]})
         }
-        console.table(this.state.BoxSelected)
+        this.props.BoxSelectedChange(this.state.BoxSelected)
+
 
     }
 
@@ -118,6 +112,11 @@ class LightGraphique extends Component {
         this.setState({id_of_light_selected: id})
 
     }
+
+
+
+
+
 
 }
 

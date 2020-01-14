@@ -47,16 +47,18 @@ class BoxLight extends Component {
     }
 
     handleClick = (coord) => {
-        console.log("clic")
+        //console.log("clic")
         if (this.state.selectedByMe || !this.state.selected) {
             var isSelected = !Boolean(this.state.selected)
             var num = this.props.num
             this.props.changeState(coord, isSelected, num)
-            console.log(isSelected)
+            //console.log(isSelected)
         }
         //this.setState(prevState => ({ selected: !prevState.selected}))
 
     }
+
+
 
 
 }

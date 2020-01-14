@@ -8,7 +8,7 @@ import LigneLight from '../ComponentParamSys/LigneLight'
 import withREST from "../hoc/withREST";
 import LightGraphique from "../ComponentParamSys/lightGraphique"
 import LightVirtuelGraph from "../ComponentParamSys/lightVirtuelGraph";
-import BoxContext from "../ComponentParamSys/BoxContext"
+import BoxContext, {BoxSelected} from "../ComponentParamSys/BoxContext"
 
 class HeonModalParamSys extends Component {
 
@@ -36,13 +36,15 @@ class HeonModalParamSys extends Component {
         //console.log(prevState.data.data[0].id +"/"+ prevState.data.data[1].id)
         return {
             data: nextProps.data,
+
         };
     }
 
     handleSaveAndClose() {
 
         this.setState({
-            show: false
+            show: false,
+            BoxSelected : ""
 
         });
 
@@ -136,10 +138,10 @@ class HeonModalParamSys extends Component {
 
 
                             <Tab eventKey="graph" title="Configuration Graphique">
-                                <LightGraphique data={data.data}/>
+                                <LightGraphique data={data.data} BoxSelectedChange={(value) => this.handleBoxSelectedChange(value)}/>
                             </Tab>
                             <Tab eventKey="graphVirtuelle" title="Gestion Lumière Virtuelle">
-                                <LightVirtuelGraph/>
+                                <LightVirtuelGraph BoxSelected={this.state.BoxSelected}/>
                             </Tab>
 
                         </Tabs>
@@ -158,6 +160,11 @@ class HeonModalParamSys extends Component {
             </Fragment>
         )
 
+    }
+
+    handleBoxSelectedChange = ( value) => {
+        console.log(value)
+        this.setState({BoxSelected:value})
     }
 
 
