@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./GraphGrid.scss"
 import Box from "./Box";
+import Button from 'react-bootstrap/Button'
 
 class LightVirtuelGraph extends Component {
 
@@ -25,7 +26,11 @@ class LightVirtuelGraph extends Component {
                     {this.DrawGrid()}
                 </div>
                 <div className="d-flex flex-column">
-                    Lumiere
+                    <div className="container">
+                        <Button className="btn btn-success">
+                            <span className="fa fa-plus"></span>
+                        </Button>
+                    </div>
                 </div>
 
             </div>

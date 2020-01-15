@@ -100,6 +100,7 @@ class LightGraphique extends Component {
             box.coord = coord
             box.isSelected = isSelected
             box.id = this.state.id_of_light_selected
+            box.virtualLight = []
             //liste.push(box)
 
             temp = [...temp , box]
