@@ -80,13 +80,15 @@ class LightGraphique extends Component {
     handleBoxChange = (coord, isSelected, num) => {
 
         var trouve = false;
-
-        Object.values(this.state.BoxSelected).map(box => {
+        var temp =  [...this.state.BoxSelected]
+        Object.values(temp).map(box => {
             if (box.num == num) {
                 box.isSelected = isSelected
                 box.id = this.state.id_of_light_selected
                 trouve = true
-                this.setState({BoxSelected: this.state.BoxSelected})
+
+                //this.setState({BoxSelected: temp})
+
             }
         })
 
@@ -99,9 +101,14 @@ class LightGraphique extends Component {
             box.isSelected = isSelected
             box.id = this.state.id_of_light_selected
             //liste.push(box)
-            this.setState({BoxSelected: [...this.state.BoxSelected, box]})
+
+            temp = [...temp , box]
+
+
         }
-        this.props.BoxSelectedChange(this.state.BoxSelected)
+        this.setState({BoxSelected: temp})
+        this.props.BoxSelectedChange(temp)
+
 
 
     }

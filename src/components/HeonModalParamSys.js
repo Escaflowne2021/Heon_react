@@ -163,7 +163,7 @@ class HeonModalParamSys extends Component {
     }
 
     handleBoxSelectedChange = ( value) => {
-        console.log(value)
+        //console.log(value)
         this.setState({BoxSelected:value})
     }
 
