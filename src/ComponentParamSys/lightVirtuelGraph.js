@@ -2,8 +2,13 @@ import React, {Component} from "react";
 import "./GraphGrid.scss"
 import Box from "./Box";
 import Button from 'react-bootstrap/Button'
+import {BoxContext} from "./BoxContext";
+
+
 
 class LightVirtuelGraph extends Component {
+
+    static contextType = BoxContext;
 
     constructor(props) {
         super(props);
@@ -71,7 +76,6 @@ class LightVirtuelGraph extends Component {
         }
     }
     handleClickBox = (value) => {
-        console.log(value)
         this.setState({id_selected:value})
     }
 

@@ -2,15 +2,17 @@ import React, {Component} from "react";
 import "./GraphGrid.scss"
 import BoxLight from "./BoxLight";
 import LineGraphLight from "./LineGraphLight";
+import {BoxContext} from "./BoxContext";
 
 class LightGraphique extends Component {
 
+    static contextType = BoxContext;
 
     constructor(props) {
         super(props);
         this.state = {
             id_of_light_selected: "",
-            BoxSelected: [{}]
+            BoxSelected: []
 
 
         }
