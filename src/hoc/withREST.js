@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import DataContext from "../DataContext";
 
 
-var IPserv = "http://127.0.0.1:8001"
+var IPserv = "http://192.168.0.13:8080"
 
 
 const withREST = WrappedComponent => (
@@ -47,6 +47,7 @@ const withREST = WrappedComponent => (
 
         ModifHeon_Promise = (heon) => new Promise(resolve => {
             let request = new XMLHttpRequest();
+            console.log(heon)
             console.log("%cMOD by HOC id: :"+ heon.id, "font-weight: bold;color: orange");
             request.open("POST", IPserv +"/Modifheon");
             request.onload = () => {

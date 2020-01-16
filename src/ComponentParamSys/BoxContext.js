@@ -8,7 +8,7 @@ class BoxDataProvider extends Component {
         super(props);
 
         this.state = {
-            BoxSelected: [],
+            BoxSelected: this.props.setBoxSelected,
             VirtualLight: []
 
         }
@@ -56,8 +56,14 @@ class BoxDataProvider extends Component {
         if (!trouve) {
 
             var box = {}
+            //box.type = "Graph"
             box.num = num
-            box.coord = coord
+            var coordJson = {
+               // type :"Coord",
+                x: coord.x,
+                y: coord.y
+            }
+            box.coord = coordJson
             box.isSelected = isSelected
             box.id = id_of_light_selected
 

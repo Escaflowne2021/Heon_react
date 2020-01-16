@@ -23,9 +23,10 @@ class LightGraphique extends Component {
     }
 
     render() {
-        console.table(this.context.BoxSelected)
+
 
         const listeLumiere = Object.values(this.props.data)
+            .filter(light => light.type=="Light")
             .sort((a, b) => (parseInt(a.numero) - parseInt(b.numero)))
             .map(heon => {
                     return (

@@ -4,6 +4,7 @@ import Box from "./Box";
 import Button from 'react-bootstrap/Button'
 import {BoxContext} from "./BoxContext";
 import withREST from "../hoc/withREST";
+import divWithClassName from "react-bootstrap/cjs/divWithClassName";
 
 
 
@@ -24,7 +25,16 @@ class LightVirtuelGraph extends Component {
     }
 
     render() {
-        console.log(this.props.data)
+
+        const virtualLight = Object.values(this.props.data.data)
+            .filter(light => light.type =="VirtualLight")
+            .map(light => {
+                return(
+                    <div>{light.id}</div>
+                )
+
+            })
+        //console.log(this.props.data)
         return (
             <div className="d-flex flex-row">
 
@@ -36,6 +46,7 @@ class LightVirtuelGraph extends Component {
                         <Button className="btn btn-success" onClick={()=>this.props.AddHeon(this.props.data.id,undefined, true)}>
                             <span className="fa fa-plus"></span>
                         </Button>
+                        {virtualLight}
                     </div>
                 </div>
 
@@ -45,6 +56,7 @@ class LightVirtuelGraph extends Component {
     }
 
     DrawGrid = () => {
+
         if (this.context.BoxSelected != null) {
             var liste = []
 

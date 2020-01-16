@@ -23,7 +23,7 @@ class App extends Component {
     render() {
         return (
             <DataContext.Provider value={this.state}>
-                <BoxDataProvider>
+
                     <div className="App" className="container">
                         <div className="row">
                             <div className="col-12 bg-secondary">Onglet SUp</div>
@@ -35,7 +35,7 @@ class App extends Component {
                             />
                         </div>
                     </div>
-                </BoxDataProvider>
+
             </DataContext.Provider>
 
         );

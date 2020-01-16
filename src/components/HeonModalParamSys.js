@@ -8,10 +8,11 @@ import LigneLight from '../ComponentParamSys/LigneLight'
 import withREST from "../hoc/withREST";
 import LightGraphique from "../ComponentParamSys/lightGraphique"
 import LightVirtuelGraph from "../ComponentParamSys/lightVirtuelGraph";
-import BoxContext, {BoxSelected} from "../ComponentParamSys/BoxContext"
+import {BoxContext} from "../ComponentParamSys/BoxContext"
 
 class HeonModalParamSys extends Component {
 
+    static contextType = BoxContext;
 
     constructor(props) {
         super(props);
@@ -21,7 +22,8 @@ class HeonModalParamSys extends Component {
             show: true, //DEV ------------------------
             data: this.props.data,
             nom: this.props.data.name,
-            ip: this.props.data.ip
+            ip: this.props.data.ip,
+            DataGraph: []
         }
 
         this.handleClose = this.handleClose.bind(this);
@@ -51,7 +53,8 @@ class HeonModalParamSys extends Component {
         var data = {...this.state.data};
         data.name = this.state.nom;
         data.ip = this.state.ip;
-
+        data.DataGraph = this.context.BoxSelected
+        console.log(this.context)
         this.props.ModHeon(data)
 
     }
@@ -82,6 +85,7 @@ class HeonModalParamSys extends Component {
 
         const listeLumiere = Object.values(data.data)
             .sort((a, b) => (parseInt(a.numero) - parseInt(b.numero)))
+            .filter(light => light.type=="Light")
             .map(heon => {
 
                     return (

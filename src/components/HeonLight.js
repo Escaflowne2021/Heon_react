@@ -3,7 +3,8 @@ import {SliderPicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
 import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
 import withREST from "../hoc/withREST";
-import  {HeonDataBaseContext} from "../DataContext";
+import BoxDataProvider from "../ComponentParamSys/BoxContext";
+
 
 
 class HeonLight extends Component {
@@ -43,8 +44,9 @@ class HeonLight extends Component {
 
         return (
 
+            <BoxDataProvider setBoxSelected={data.DataGraph}>
 
-                    <div className="bg-success mx-auto" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
+            <div className="bg-success mx-auto" onMouseDown={this.MouseDown} onMouseUp={this.MouseUp}>
 
                         Sys  {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
@@ -65,6 +67,7 @@ class HeonLight extends Component {
 
 
                     </div>
+            </BoxDataProvider>
 
 
 
