@@ -3,6 +3,7 @@ import "./GraphGrid.scss"
 import Box from "./Box";
 import Button from 'react-bootstrap/Button'
 import {BoxContext} from "./BoxContext";
+import withREST from "../hoc/withREST";
 
 
 
@@ -14,7 +15,7 @@ class LightVirtuelGraph extends Component {
         super(props);
 
         this.state = {
-            BoxSelected: this.props.BoxSelected,
+            //BoxSelected: this.props.BoxSelected,
             colors: ["LightPink ", "LightSalmon", "LightSeaGreen"],
             colorById: [],
             id_selected: ""
@@ -23,7 +24,7 @@ class LightVirtuelGraph extends Component {
     }
 
     render() {
-
+        console.log(this.props.data)
         return (
             <div className="d-flex flex-row">
 
@@ -32,7 +33,7 @@ class LightVirtuelGraph extends Component {
                 </div>
                 <div className="d-flex flex-column">
                     <div className="container">
-                        <Button className="btn btn-success">
+                        <Button className="btn btn-success" onClick={()=>this.props.AddHeon(this.props.data.id,undefined, true)}>
                             <span className="fa fa-plus"></span>
                         </Button>
                     </div>
@@ -44,7 +45,7 @@ class LightVirtuelGraph extends Component {
     }
 
     DrawGrid = () => {
-        if (this.props.BoxSelected != null) {
+        if (this.context.BoxSelected != null) {
             var liste = []
 
             let Y = 10
@@ -53,7 +54,7 @@ class LightVirtuelGraph extends Component {
             for (let y = 0; y < Y; y++) {
                 for (let x = 0; x < X; x++) {
                     let numero = y * Y + x + 1
-                    let rst = Object.values(this.props.BoxSelected).find(a => a.num == numero)
+                    let rst = Object.values(this.context.BoxSelected).find(a => a.num == numero)
                     var color = ""
                     var id = ""
                     var isSelected = false
@@ -98,4 +99,6 @@ class LightVirtuelGraph extends Component {
     }
 }
 
-export default LightVirtuelGraph
+const WrappedComponent = withREST(LightVirtuelGraph)
+
+export default WrappedComponent

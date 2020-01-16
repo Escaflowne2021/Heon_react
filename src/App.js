@@ -51,7 +51,7 @@ class App extends Component {
         /* setInterval(() => REST.Get_Promise().then((value) => {
              this.setState({HeonDataBaseContext: value, id_database: value.id})}), 2000);*/
         setInterval(() => this.props.Get_Promise().then(value => {
-            this.setState({HeonDataBaseContext: value})
+            this.setState({HeonDataBaseContext: value,id_database:value.id})
         }), 2000)
     }
 }

@@ -12,14 +12,19 @@ class LightGraphique extends Component {
         super(props);
         this.state = {
             id_of_light_selected: "",
-            BoxSelected: []
+            //BoxSelected: this.context.BoxSelected
 
 
         }
 
+        this.handleBoxChange = this.handleBoxChange.bind(this)
+
+
     }
 
     render() {
+        console.table(this.context.BoxSelected)
+
         const listeLumiere = Object.values(this.props.data)
             .sort((a, b) => (parseInt(a.numero) - parseInt(b.numero)))
             .map(heon => {
@@ -28,7 +33,7 @@ class LightGraphique extends Component {
                                         setSelected={this.state.id_of_light_selected}
                                         value={heon.numero}
                                         data={heon}
-                                        DataBoxSelected={this.state.BoxSelected}
+                                        DataBoxSelected={this.context.BoxSelected}
                                         onChangeSelected={(value) => this.handleLightSelected(value)}/>
                     )
 
@@ -43,7 +48,7 @@ class LightGraphique extends Component {
         for (let y = 0; y < Y; y++) {
             for (let x = 0; x < X; x++) {
                 let numero = y * Y + x + 1
-                let rst = Object.values(this.state.BoxSelected).find(a => a.num == numero)
+                let rst = Object.values(this.context.BoxSelected).find(a => a.num == numero)
                 var selec = false
                 let selecByMe = true
                 if (rst != null) {
@@ -80,45 +85,11 @@ class LightGraphique extends Component {
 
     //Changement des lumieres est appuyée
     handleBoxChange = (coord, isSelected, num) => {
-
-        var trouve = false;
-        var temp =  [...this.state.BoxSelected]
-        Object.values(temp).map(box => {
-            if (box.num == num) {
-                box.isSelected = isSelected
-                box.id = this.state.id_of_light_selected
-                trouve = true
-
-                //this.setState({BoxSelected: temp})
-
-            }
-        })
-
-
-        if (!trouve) {
-
-            var box = {}
-            box.num = num
-            box.coord = coord
-            box.isSelected = isSelected
-            box.id = this.state.id_of_light_selected
-            box.virtualLight = []
-            //liste.push(box)
-
-            temp = [...temp , box]
-
-
-        }
-        this.setState({BoxSelected: temp})
-        this.props.BoxSelectedChange(temp)
-
-
-
+        this.context.addBoxSelected(coord,isSelected,num,this.state.id_of_light_selected)
     }
 
     //Changement des lumieres est appuyée
     handleLightSelected = (id, BoxSelected) => {
-
         this.setState({id_of_light_selected: id})
 
     }

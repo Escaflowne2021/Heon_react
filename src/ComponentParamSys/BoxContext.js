@@ -9,6 +9,7 @@ class BoxDataProvider extends Component {
 
         this.state = {
             BoxSelected: [],
+            VirtualLight: []
 
         }
 
@@ -33,8 +34,43 @@ class BoxDataProvider extends Component {
         )
     }
 
-    addBoxSelected = (value) => {
-        console.info("ADD BOX SELECTED " + value)
+
+    addVirtualLight = (id,name) => {
+
+    }
+
+    addBoxSelected = (coord, isSelected, num,id_of_light_selected ) => {
+
+        var trouve = false;
+        var temp =  [...this.state.BoxSelected]
+        Object.values(temp).map(box => {
+            if (box.num == num) {
+                box.isSelected = isSelected
+                box.id = id_of_light_selected
+                trouve = true
+
+            }
+        })
+
+
+        if (!trouve) {
+
+            var box = {}
+            box.num = num
+            box.coord = coord
+            box.isSelected = isSelected
+            box.id = id_of_light_selected
+
+            //liste.push(box)
+
+            temp = [...temp , box]
+
+
+        }
+        this.setState({BoxSelected: temp})
+        //this.props.BoxSelectedChange(temp)
+
+
     }
 
 

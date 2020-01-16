@@ -11,20 +11,20 @@ const withREST = WrappedComponent => (
 
         static contextType = DataContext;
 
-        AddHeon_Promise = (id,nb=1) => new Promise(resolve => {
+        AddHeon_Promise = (id,nb=1,virtual = false) => new Promise(resolve => {
             let request = new XMLHttpRequest();
-            console.log("%cADD by HOC id: :"+ id, "font-weight: bold;color: orange");
-            request.open("POST", IPserv +"/HeonAdd?id="+id+"&nb="+nb);
+            console.log("%cADD by HOC id: :"+ id + IPserv +"/HeonAdd?id="+id+"&nb="+nb+"&virtual="+virtual, "font-weight: bold;color: orange");
+            request.open("POST", IPserv +"/HeonAdd?id="+id+"&nb="+nb+"&virtual="+virtual);
             request.onload = () => {
                 let raw = request.responseText;
                 let data = JSON.parse(raw, ((key, value) => {
                     return value;
                 }));
-                //console.log(data);
+                console.log(data);
                 this.context.RefreshData(data)
                 resolve(data)
             }
-            request.send(id,nb);
+            request.send(id,nb,virtual);
         })
 
 
@@ -74,7 +74,7 @@ const withREST = WrappedComponent => (
                 let data = JSON.parse(raw, ((key, value) => {
                     return value;
                 }));
-                //console.log(data)
+                //console.table(data)
                 this.context.RefreshData(data)
                 resolve(data)
             }

@@ -44,7 +44,7 @@ class HeonModalParamSys extends Component {
 
         this.setState({
             show: false,
-            BoxSelected : ""
+
 
         });
 
@@ -138,10 +138,10 @@ class HeonModalParamSys extends Component {
 
 
                             <Tab eventKey="graph" title="Configuration Graphique">
-                                <LightGraphique data={data.data} BoxSelectedChange={(value) => this.handleBoxSelectedChange(value)}/>
+                                <LightGraphique data={data.data}/>
                             </Tab>
                             <Tab eventKey="graphVirtuelle" title="Gestion Lumière Virtuelle">
-                                <LightVirtuelGraph BoxSelected={this.state.BoxSelected}/>
+                                <LightVirtuelGraph data={data} />
                             </Tab>
 
                         </Tabs>
@@ -162,10 +162,7 @@ class HeonModalParamSys extends Component {
 
     }
 
-    handleBoxSelectedChange = ( value) => {
-        //console.log(value)
-        this.setState({BoxSelected:value})
-    }
+
 
 
 }
