@@ -27,7 +27,7 @@ class LightControlLine extends Component {
 
         return (
             <div>
-                {data.numero} - {data.id}
+                {data.name} - {data.numero} - {data.id}
 
                 <HuePicker color={color} onChange={this.handleChangeComplete}/>
             </div>
@@ -37,16 +37,18 @@ class LightControlLine extends Component {
 
 
     handleChangeComplete(color) {
-        this.setState({color: color.rgb});
+
+       /* this.setState({color: color.rgb});
         Object.values(this.state.data.data).map((pixel) => {
                 pixel.r = this.state.color.r
                 pixel.g = this.state.color.g
                 pixel.b = this.state.color.b
 
             }
-        )
-        this.props.ModHeon(this.state.data)
-        //REST.ModifHeon(this.state.data)
+        )*/
+        //this.props.ModHeon(this.state.data)
+        this.props.SetLight(this.props.data.id,color.rgb.r,color.rgb.g,color.rgb.b)
+
     }
 
 }

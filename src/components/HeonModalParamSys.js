@@ -112,7 +112,7 @@ class HeonModalParamSys extends Component {
                     <Modal.Body>
 
 
-                        <Tabs defaultActiveKey="graph" id="uncontrolled-tab-example"  >
+                        <Tabs defaultActiveKey="graphVirtuelle" id="uncontrolled-tab-example"  >
                             <Tab eventKey="conf" title="Configuration Light" >
                                 <Form>
                                     <Form.Group controlId="formBasicName">

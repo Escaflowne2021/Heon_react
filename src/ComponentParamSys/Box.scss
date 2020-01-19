@@ -1,12 +1,15 @@
 
 .box {
+  display: flex;
+
   border-color: lightslategray;
   border-style: solid;
-  border-width: 1px;
-  border-radius: 15%;
+  border-width: 2px;
+  border-radius: 20%;
   height: auto;
   width: auto;
   text-align: center;
+  //margin: 10px;
 
   &:hover{
     //background-color: aquamarine;

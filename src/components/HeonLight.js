@@ -1,5 +1,5 @@
 import React, {Component, useState} from "react";
-import {SliderPicker} from 'react-color'
+import {HuePicker} from 'react-color'
 import HeonModalParamSys from './HeonModalParamSys'
 import HeonModalControlLight from '../ComponentLightControl/HeonModalControlLight'
 import withREST from "../hoc/withREST";
@@ -25,6 +25,7 @@ class HeonLight extends Component {
         this.LightClick = this.LightClick.bind(this);
         this.MouseUp = this.MouseUp.bind(this);
         this.MouseDown = this.MouseDown.bind(this);
+        this.handleChangeComplete = this.handleChangeComplete.bind(this)
 
     }
 
@@ -50,7 +51,7 @@ class HeonLight extends Component {
 
                         Sys  {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
-                        <SliderPicker color={color} onChange={this.handleChangeComplete}/>
+                        <HuePicker color={color} onChange={this.handleChangeComplete}/>
                         <button className="btn" onClick={() => this.props.SupHeon(data.id)}>
                             <span className="fa fa-remove"/>
                         </button>
@@ -99,14 +100,14 @@ class HeonLight extends Component {
     }
 
 
-    handleChangeComplete = (color, event) => {
-        //console.log(color.rgb)
+    handleChangeComplete (color) {
+       /*
         this.setState({color: color.rgb});
-        var data = {...this.props.data.data};
-        var color = {...this.state.color};
+        var data = {...this.props.data.data};*/
 
-        // var allume = { ... this.state.allume}
-        var light = Object.keys(data).map((i) => {
+
+
+       /* var light = Object.keys(data).map((i) => {
             //PIXEL
             var pixel = {...data[i].data};
             //console.log(pixel)
@@ -116,9 +117,10 @@ class HeonLight extends Component {
                     pixel[ii].b = color.b;
                 }
             )
-        });
-
-        this.PostData(this.props.data)
+        });*/
+        //console.log(color.rgb)
+        this.props.SetLight(this.props.data.id,color.rgb.r,color.rgb.g,color.rgb.b)
+        //this.PostData(this.props.data)
 
         //REST.ModifHeon(this.props.data)
     };

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import DataContext from "../DataContext";
 
 
-var IPserv = "http://192.168.0.13:8080"
+var IPserv = "http://192.168.0.42:8001"
 
 
 const withREST = WrappedComponent => (
@@ -25,6 +25,22 @@ const withREST = WrappedComponent => (
                 resolve(data)
             }
             request.send(id,nb,virtual);
+        })
+
+        SetLight_Promise = (id,r=0,g=0,b=0) => new Promise(resolve => {
+            let request = new XMLHttpRequest();
+            console.log("%cSet Ligh: :"+ id + IPserv +"/SetLightheon?id="+id+"&r="+r+"&g="+g+"&b="+b, "font-weight: bold;color: orange")
+            request.open("POST", IPserv +"/SetLightheon?id="+id+"&r="+r+"&g="+g+"&b="+b)
+            request.onload = () => {
+                let raw = request.responseText;
+                let data = JSON.parse(raw, ((key, value) => {
+                    return value;
+                }));
+                console.log(data);
+                this.context.RefreshData(data)
+                resolve(data)
+            }
+            request.send(id,r,g,b);
         })
 
 
@@ -92,6 +108,7 @@ const withREST = WrappedComponent => (
                     SupHeon={this.SuppHeon_Promise}
                     ModHeon={this.ModifHeon_Promise}
                     Get_Promise={this.Get_Promise}
+                    SetLight={this.SetLight_Promise}
                     {... this.props}/>
             )
         }
