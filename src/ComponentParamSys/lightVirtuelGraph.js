@@ -25,6 +25,7 @@ class LightVirtuelGraph extends Component {
 
         }
         this.handleClickLightVirtual = this.handleClickLightVirtual.bind(this)
+        this.handleChangeName = this.handleChangeName.bind(this)
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -45,7 +46,9 @@ class LightVirtuelGraph extends Component {
             .map(light => {
                 return(
                     <VirtualLight id={light.id}
+                                  name={light.name}
                                   id_virtual_actif={this.state.id_virtual_actif}
+                                  changeName={(name)=>this.handleChangeName(name,light.id)}
                                   onClick={()=>this.handleClickLightVirtual(light.id)}/>
                 )
 
@@ -71,11 +74,17 @@ class LightVirtuelGraph extends Component {
 
         )
     }
+    handleChangeName = (name,id) => {
+        var light = Object.values(this.state.data.data).find(light => light.id == id)
+        console.table(name)
+        light.name = name
+        this.props.ModHeon(light)
+    }
 
     handleClickLightVirtual = (id) => {
         const temp = Object.values(this.state.data.data).find(light => light.id == id)
             this.setState({id_virtual_actif:id,box_selected_by_light : temp.dataV})
-        console.table(temp)
+        //console.table(temp)
     }
 
 

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import DataContext from "../DataContext";
 
 
-var IPserv = "http://192.168.0.42:8001"
+var IPserv = "http://192.168.0.13:8080"
 
 
 const withREST = WrappedComponent => (

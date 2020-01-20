@@ -2,45 +2,51 @@ import {Col, Container, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import React from "react";
 import withREST from "../hoc/withREST";
-import Form from 'react-bootstrap/Form'
+import Form from "react-bootstrap/Form";
+
 
 
 
 const LigneLight = (props) => {
 
     var LastPixel = props.heon.data[props.heon.data.length - 1]
+    var heon = {...props.heon}
 
     return (
         <Container>
             <Row>
                 <Col className="text-center">
-                    <div> Lumiere {props.heon.numero} - id:{props.heon.id}  </div>
+                    <div> Lumiere {heon.numero} - id:{heon.id}  </div>
                 </Col>
 
-                    <Form.Check
-                        isChecked={true}
-                        type="radio"
-                        label="Visible ?"
-                    />
+
+                <input type="checkbox"
+                       onChange={(key, event)=> {
+                           console.log("cccc")
+                           heon.visible = !heon.visible
+                           props.ModHeon(heon)
+                       }}
+                       defaultChecked={heon.visible}/>
+
 
                 <Col className="btext-center mx-auto">
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm"  onClick={() => props.AddHeon(props.heon.id,10)}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm"  onClick={() => props.AddHeon(heon.id,10)}>
                     +10
                     </Button>
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.AddHeon(props.heon.id)}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.AddHeon(heon.id)}>
                         <span className="fa fa-plus"></span>
                     </Button>
                     <div className="d-inline p-2">nb Pixel {props.heon.data.length}</div>
                     <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(LastPixel.id)}>
                         <span className="fa fa-minus"></span>
                     </Button>
-                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(props.heon.id,10)}>
+                    <Button className="d-inline p-2" variant="outline-dark" size="sm" onClick={() => props.SupHeon(heon.id,10)}>
                         -10
                     </Button>
 
                 </Col>
                 <Col xs={1} className="text-center">
-                    <Button variant="outline-danger" size="sm"  onClick={() => props.SupHeon(props.heon.id)}>
+                    <Button variant="outline-danger" size="sm"  onClick={() => props.SupHeon(heon.id)}>
                         <span className="fa fa-remove"/>
                     </Button>
 

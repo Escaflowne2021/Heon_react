@@ -51,7 +51,7 @@ class HeonLight extends Component {
 
                         Sys  {data.id} - {data.name} - {data.data.length} {data.erreur_connexion?"- ERREUR" : ""}
 
-                        <HuePicker color={color} onChange={this.handleChangeComplete}/>
+                        <HuePicker color={color} onChangeComplete={this.handleChangeComplete}/>
                         <button className="btn" onClick={() => this.props.SupHeon(data.id)}>
                             <span className="fa fa-remove"/>
                         </button>

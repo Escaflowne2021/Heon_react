@@ -13,6 +13,7 @@ class HeonModalControlLight extends Component {
         var data = { ... this.props.data}
 
         const liste = Object.values(data.data)
+            .filter(light => light.visible)
             .sort((a,b)=>(parseInt(a.numero) - parseInt(b.numero)))
             .map(light => (
 

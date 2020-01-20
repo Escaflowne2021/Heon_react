@@ -29,7 +29,7 @@ class LightControlLine extends Component {
             <div>
                 {data.name} - {data.numero} - {data.id}
 
-                <HuePicker color={color} onChange={this.handleChangeComplete}/>
+                <HuePicker color={color} onChangeComplete={this.handleChangeComplete}/>
             </div>
 
         );
